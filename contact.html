@@ -29,19 +29,22 @@
         .input-group input, .input-group select, .input-group textarea { width: 100%; padding: 16px; border: 2px solid #f1f5f9; border-radius: 12px; background: #f8fafc; outline: none; font-size: 1rem; transition: var(--transition); }
         .input-group input:focus, .input-group select:focus, .input-group textarea:focus { border-color: var(--primary-light); background: white; box-shadow: 0 0 0 4px rgba(37,99,235,0.1); }
         
-        /* Payment Box UI with Copy Button */
+        /* Payment Box UI with QR & Copy Button */
         .payment-box { background: #f8fafc; border: 2px dashed var(--primary-light); padding: 25px; border-radius: 16px; margin-bottom: 30px; text-align: center; }
         .payment-box h4 { color: var(--primary); font-size: 1.2rem; margin-bottom: 15px; }
         
+        /* QR Code Styling */
+        .qr-code-img { max-width: 180px; height: auto; margin: 0 auto 20px; border-radius: 12px; box-shadow: var(--shadow-sm); border: 1px solid #e2e8f0; display: block; }
+        
         .upi-container { display: flex; align-items: center; justify-content: center; gap: 15px; background: white; padding: 12px 20px; border-radius: 12px; border: 1px solid #e2e8f0; width: fit-content; margin: 0 auto 15px; box-shadow: var(--shadow-sm); }
-        .upi-id { font-size: 1.3rem; font-weight: 800; color: var(--dark); letter-spacing: 0.5px; }
+        .upi-id { font-size: 1.2rem; font-weight: 800; color: var(--dark); letter-spacing: 0.5px; }
         
         .copy-btn { background: var(--primary-light); color: white; border: none; padding: 8px 16px; border-radius: 8px; font-size: 0.9rem; font-weight: 700; cursor: pointer; transition: var(--transition); display: flex; align-items: center; gap: 6px; }
         .copy-btn:hover { background: var(--primary); transform: translateY(-2px); }
         
         .payment-box p { font-size: 0.95rem; color: var(--text-muted); }
 
-        /* Success Message UI (Hidden by default) */
+        /* Success Message UI */
         #success-message { display: none; text-align: center; padding: 40px 20px; background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 20px; }
         #success-message i { font-size: 60px; color: var(--secondary); margin-bottom: 20px; }
         #success-message h3 { font-size: 2rem; color: #166534; margin-bottom: 15px; }
@@ -53,6 +56,7 @@
             .info-card h2 { font-size: 2rem; }
             .upi-container { flex-direction: column; gap: 10px; width: 100%; }
             .copy-btn { width: 100%; justify-content: center; }
+            .qr-code-img { max-width: 150px; } /* Thoda chota for mobile */
         }
     </style>
 </head>
@@ -111,7 +115,7 @@
         <!-- Right Side Container -->
         <div class="form-card reveal delay-1">
             
-            <!-- Success Message (This shows AFTER form is hidden) -->
+            <!-- Success Message (Shows AFTER form is submitted) -->
             <div id="success-message">
                 <i class="fas fa-check-circle"></i>
                 <h3>Details Received!</h3>
@@ -121,16 +125,20 @@
             <!-- Form -->
             <form id="qwickdesk-form" action="https://formspree.io/f/xaqrevgl" method="POST">
                 
-                <!-- UPI Payment Box with Copy Option -->
+                <!-- UPI Payment Box with QR Code (PNG) & Copy Option -->
                 <div class="payment-box">
-                    <h4>Secure Payment via UPI</h4>
+                    <h4>Scan & Pay Securely</h4>
+                    
+                    <!-- Yahan humne .png kar diya hai -->
+                    <img src="scanner.png" alt="UPI QR Code" class="qr-code-img">
+                    
                     <div class="upi-container">
                         <span class="upi-id" id="upi-text">7249828812@upi</span>
                         <button type="button" class="copy-btn" onclick="copyUPI()" id="copy-btn-element">
                             <i class="fas fa-copy"></i> Copy ID
                         </button>
                     </div>
-                    <p>Make the payment for your selected plan and enter the UTR/Reference number below.</p>
+                    <p>Scan the QR code or copy the UPI ID to make payment for your selected plan. Enter the UTR below.</p>
                 </div>
 
                 <div class="input-group">
@@ -172,7 +180,7 @@
 
     </section>
 
-    <!-- Custom JavaScript for Copy UPI and Form Submission -->
+    <!-- JavaScript for Copy UPI and Form Submission -->
     <script>
         // Copy UPI Functionality
         function copyUPI() {
@@ -180,7 +188,7 @@
             navigator.clipboard.writeText(upiText).then(function() {
                 var copyBtn = document.getElementById("copy-btn-element");
                 copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
-                copyBtn.style.background = "var(--secondary)"; // Change color to green
+                copyBtn.style.background = "var(--secondary)";
                 
                 // Revert back after 3 seconds
                 setTimeout(function() {
@@ -197,28 +205,23 @@
         var errorMsg = document.getElementById("error-msg");
 
         form.addEventListener("submit", async function(event) {
-            event.preventDefault(); // Default submit ko roko
+            event.preventDefault(); 
             
-            // Button text change to show loading
             submitBtn.innerHTML = 'Processing... <i class="fas fa-spinner fa-spin" style="margin-left: 5px;"></i>';
             submitBtn.disabled = true;
 
             var data = new FormData(event.target);
             
-            // Formspree par data bhejo
             fetch(event.target.action, {
                 method: form.method,
                 body: data,
                 headers: { 'Accept': 'application/json' }
             }).then(response => {
                 if (response.ok) {
-                    // Success: Form hide karo aur Message show karo
                     form.style.display = "none";
                     successMessage.style.display = "block";
-                    // Scroll to top of the message so user sees it clearly
                     successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 } else {
-                    // Error handle
                     errorMsg.style.display = "block";
                     submitBtn.innerHTML = 'Submit & Confirm Payment <i class="fas fa-arrow-right"></i>';
                     submitBtn.disabled = false;
