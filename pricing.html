@@ -7,28 +7,42 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <style>
-        .page-header { text-align: center; padding: 60px 20px 40px; }
-        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto 100px; padding: 0 5%; }
-        .price-card { padding: 40px; display: flex; flex-direction: column; text-align: center; position: relative; }
-        .price-card.popular { transform: scale(1.05); border: 2px solid var(--primary-light); background: rgba(255,255,255,0.9); }
-        .badge { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--accent); color: white; padding: 5px 20px; border-radius: 20px; font-weight: bold; }
-        .price { font-size: 3.5rem; color: var(--primary); font-weight: 800; margin: 20px 0; }
-        .features { text-align: left; margin-bottom: 30px; flex-grow: 1; }
-        .features li { margin-bottom: 15px; font-weight: 600; display: flex; gap: 10px; }
-        .features li i { color: var(--secondary); margin-top: 5px; }
-        @media (max-width: 991px) { .price-card.popular { transform: scale(1); } }
+        .header-bg { text-align: center; padding: 150px 5% 50px; }
+        
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; max-width: 1250px; margin: 0 auto 100px; padding: 0 5%; align-items: center; }
+        
+        .price-card { background: white; padding: 50px 40px; border-radius: 30px; text-align: center; border: 1px solid #e2e8f0; box-shadow: var(--shadow-sm); position: relative; transition: var(--transition); display: flex; flex-direction: column; height: 100%; }
+        
+        /* The "Thoda Achha" Growth Card Setup */
+        .price-card.popular { transform: scale(1.05); border: 2px solid var(--primary-light); box-shadow: 0 25px 50px rgba(37, 99, 235, 0.15); z-index: 10; }
+        .price-card.popular:hover { transform: scale(1.05) translateY(-10px); }
+        
+        .badge { position: absolute; top: -18px; left: 50%; transform: translateX(-50%); background: var(--accent); color: white; padding: 8px 24px; border-radius: 30px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem; box-shadow: 0 5px 15px rgba(244, 63, 94, 0.4); }
+        
+        .price-card h3 { font-size: 1.8rem; color: var(--dark); margin-bottom: 25px; }
+        .price { font-size: 4.5rem; font-weight: 800; color: var(--primary); margin-bottom: 30px; line-height: 1; display: flex; justify-content: center; align-items: flex-start; }
+        .price span { font-size: 2rem; margin-top: 10px; margin-right: 5px; }
+
+        .features { text-align: left; margin-bottom: 40px; flex-grow: 1; }
+        .features li { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; font-size: 1.05rem; font-weight: 600; color: var(--text-main); }
+        .features li i { color: var(--secondary); font-size: 1.3rem; }
+
+        @media (max-width: 991px) {
+            .pricing-grid { gap: 50px; }
+            .price-card.popular { transform: scale(1); }
+            .price-card.popular:hover { transform: translateY(-5px); }
+        }
     </style>
 </head>
 <body>
-    <div class="bg-blobs"><div class="blob blob-2"></div></div>
 
     <nav class="navbar">
         <div class="logo">QwickDesk<span>.</span></div>
         <div class="nav-menu">
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="services.html">Our Expertise</a></li>
+                <li><a href="pricing.html" class="active">Pricing</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
             <div class="nav-actions">
@@ -38,46 +52,55 @@
         </div>
     </nav>
 
-    <header class="page-header reveal">
-        <h1 class="text-gradient">Affordable Plans</h1>
+    <header class="header-bg reveal">
+        <h1 class="text-gradient">Transparent Investment</h1>
+        <p style="font-size: 1.2rem; color: var(--text-muted); margin-top:10px;">High-value assets at costs designed for growing businesses.</p>
     </header>
 
     <section class="pricing-grid">
-        <div class="glass-card price-card reveal">
+        <!-- Starter -->
+        <div class="price-card reveal delay-1">
             <h3>Starter</h3>
-            <div class="price">₹699</div>
+            <div class="price"><span>₹</span>699</div>
             <ul class="features">
                 <li><i class="fas fa-check-circle"></i> 1 Page Landing Site</li>
                 <li><i class="fas fa-check-circle"></i> Mobile Auto-Adjust</li>
-                <li><i class="fas fa-check-circle"></i> WhatsApp Integration</li>
+                <li><i class="fas fa-check-circle"></i> WhatsApp Floating Button</li>
+                <li><i class="fas fa-check-circle"></i> Basic Speed Setup</li>
             </ul>
-            <a href="contact.html" class="btn btn-secondary">Choose Starter</a>
+            <a href="contact.html" class="btn btn-outline" style="width: 100%;">Choose Starter</a>
         </div>
 
-        <div class="glass-card price-card popular reveal delay-1">
+        <!-- Growth -->
+        <div class="price-card popular reveal">
             <div class="badge">Most Popular</div>
             <h3>Growth</h3>
-            <div class="price">₹999</div>
+            <div class="price"><span>₹</span>999</div>
             <ul class="features">
                 <li><i class="fas fa-check-circle"></i> Multi-Page Structure</li>
                 <li><i class="fas fa-check-circle"></i> Lead Generation Form</li>
                 <li><i class="fas fa-check-circle"></i> Google Maps Setup</li>
+                <li><i class="fas fa-check-circle"></i> Advanced Animations</li>
             </ul>
-            <a href="contact.html" class="btn btn-primary">Choose Growth</a>
+            <a href="contact.html" class="btn btn-primary" style="width: 100%; padding: 18px;">Choose Growth</a>
         </div>
 
-        <div class="glass-card price-card reveal delay-2">
+        <!-- Pro -->
+        <div class="price-card reveal delay-2">
             <h3>Pro</h3>
-            <div class="price">₹1,499</div>
+            <div class="price"><span>₹</span>1,499</div>
             <ul class="features">
                 <li><i class="fas fa-check-circle"></i> Premium Graphic UI</li>
-                <li><i class="fas fa-check-circle"></i> Advanced Animations</li>
-                <li><i class="fas fa-check-circle"></i> Priority Support</li>
+                <li><i class="fas fa-check-circle"></i> Local SEO Tags Setup</li>
+                <li><i class="fas fa-check-circle"></i> Glassmorphism FX</li>
+                <li><i class="fas fa-check-circle"></i> Priority Delivery</li>
             </ul>
-            <a href="contact.html" class="btn btn-secondary">Choose Pro</a>
+            <a href="contact.html" class="btn btn-outline" style="width: 100%;">Choose Pro</a>
         </div>
     </section>
 
+    <a href="https://wa.me/917249828812" class="floating-wa" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <footer><p>&copy; 2026 QwickDesk Solutions.</p></footer>
     <script src="script.js"></script>
 </body>
 </html>
