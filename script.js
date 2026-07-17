@@ -1,4 +1,4 @@
-// Hamburger Menu Logic
+// Mobile Navbar Logic
 const hamburger = document.querySelector('.hamburger');
 const navLinks = document.querySelector('.nav-links');
 
@@ -19,7 +19,7 @@ document.querySelectorAll('.nav-links a').forEach(link => {
     });
 });
 
-// Active Link Highlighter
+// Highlight Active Menu Item
 const currentPage = window.location.pathname.split("/").pop();
 const navItems = document.querySelectorAll('.nav-links a');
 navItems.forEach(link => {
@@ -28,7 +28,17 @@ navItems.forEach(link => {
     }
 });
 
-// Staggered Scroll Reveal
+// Sticky Navbar Shadow on Scroll
+window.addEventListener('scroll', () => {
+    const nav = document.querySelector('.navbar');
+    if (window.scrollY > 20) {
+        nav.classList.add('scrolled');
+    } else {
+        nav.classList.remove('scrolled');
+    }
+});
+
+// Advanced Scroll Reveal Animation
 function reveal() {
     var reveals = document.querySelectorAll(".reveal");
     for (var i = 0; i < reveals.length; i++) {
