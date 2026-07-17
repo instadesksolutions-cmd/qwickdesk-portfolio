@@ -7,41 +7,47 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <style>
-        .page-header { text-align: center; padding: 60px 20px 40px; }
-        .contact-wrap { display: grid; grid-template-columns: 1fr 1.2fr; gap: 50px; max-width: 1100px; margin: 0 auto 100px; padding: 0 5%; }
+        .header-bg { text-align: center; padding: 150px 5% 50px; }
         
-        .info-card { padding: 40px; background: linear-gradient(135deg, var(--primary), var(--dark)); color: white; border-radius: 24px; }
-        .info-card h2 { color: white; margin-bottom: 20px; }
-        .contact-method { display: flex; gap: 15px; margin-bottom: 30px; align-items: center; }
-        .contact-method i { font-size: 20px; color: var(--primary); background: white; padding: 15px; border-radius: 50%; }
-        .contact-method h4 { color: white; margin-bottom: 5px; }
-        .contact-method a { color: #d1d5db; font-size: 0.95rem; }
-        .contact-method a:hover { color: var(--secondary); text-decoration: underline; }
-
-        .form-card { padding: 40px; }
-        .input-group { margin-bottom: 20px; }
-        .input-group input, .input-group select, .input-group textarea { width: 100%; padding: 15px; border: 1px solid var(--glass-border); border-radius: 10px; background: rgba(255,255,255,0.5); outline: none; transition: 0.3s; font-family: inherit; }
-        .input-group input:focus, .input-group textarea:focus { background: white; border-color: var(--primary-light); }
+        .contact-wrap { display: grid; grid-template-columns: 1fr 1.3fr; gap: 50px; max-width: 1200px; margin: 0 auto 100px; padding: 0 5%; }
         
-        [data-fs-success] { display: none; background: #d1fae5; color: #065f46; padding: 15px; border-radius: 10px; margin-bottom: 20px; font-weight: bold; text-align: center; }
-        [data-fs-error]:not([data-fs-error=""]) { display: block; color: red; font-size: 13px; margin-top: 5px; }
+        /* Direct Info Box */
+        .info-card { background: linear-gradient(135deg, var(--dark), var(--primary)); padding: 50px; border-radius: 30px; color: white; box-shadow: var(--shadow-md); }
+        .info-card h2 { color: white; margin-bottom: 20px; font-size: 2.5rem; }
+        .info-card p { color: #cbd5e1; margin-bottom: 40px; font-size: 1.1rem; }
+        
+        .contact-method { display: flex; align-items: center; gap: 20px; margin-bottom: 35px; }
+        .contact-method i { font-size: 24px; color: var(--primary); background: white; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; border-radius: 50%; flex-shrink: 0; }
+        .contact-method h4 { color: white; font-size: 1.1rem; margin-bottom: 5px; }
+        .contact-method a { color: #e2e8f0; transition: var(--transition); font-size: 1rem; }
+        .contact-method a:hover { color: var(--secondary); }
+        
+        /* Form Box */
+        .form-card { background: white; padding: 50px; border-radius: 30px; box-shadow: var(--shadow-sm); border: 1px solid #e2e8f0; }
+        .input-group { margin-bottom: 25px; }
+        .input-group label { display: block; font-weight: 700; margin-bottom: 10px; color: var(--text-main); }
+        .input-group input, .input-group select, .input-group textarea { width: 100%; padding: 16px; border: 2px solid #f1f5f9; border-radius: 12px; background: #f8fafc; outline: none; font-size: 1rem; transition: var(--transition); }
+        .input-group input:focus, .input-group select:focus, .input-group textarea:focus { border-color: var(--primary-light); background: white; box-shadow: 0 0 0 4px rgba(37,99,235,0.1); }
+        
+        [data-fs-success] { display: none; background: #dcfce7; color: #166534; padding: 20px; border-radius: 12px; margin-bottom: 25px; font-weight: 700; text-align: center; border: 1px solid #bbf7d0; }
+        [data-fs-error]:not([data-fs-error=""]) { display: block; color: #dc2626; font-size: 14px; margin-top: 8px; font-weight: 600; }
         [data-fs-error=""] { display: none; }
 
         @media (max-width: 991px) {
-            .contact-wrap { grid-template-columns: 1fr; gap: 30px; }
-            .info-card, .form-card { padding: 30px 20px; }
+            .contact-wrap { grid-template-columns: 1fr; gap: 40px; }
+            .info-card, .form-card { padding: 40px 20px; }
+            .info-card h2 { font-size: 2rem; }
         }
     </style>
 </head>
 <body>
-    <div class="bg-blobs"><div class="blob blob-1"></div></div>
 
     <nav class="navbar">
         <div class="logo">QwickDesk<span>.</span></div>
         <div class="nav-menu">
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="services.html">Services</a></li>
+                <li><a href="services.html">Our Expertise</a></li>
                 <li><a href="pricing.html">Pricing</a></li>
                 <li><a href="contact.html" class="active">Contact</a></li>
             </ul>
@@ -52,72 +58,79 @@
         </div>
     </nav>
 
-    <header class="page-header reveal">
-        <h1 class="text-gradient">Get In Touch</h1>
+    <header class="header-bg reveal">
+        <h1 class="text-gradient">Start Your Project</h1>
     </header>
 
     <section class="contact-wrap">
-        <!-- Details (No long email text) -->
+        
+        <!-- Details Box -->
         <div class="info-card reveal">
-            <h2>Contact Details</h2>
-            <p style="color: #ccc; margin-bottom: 30px;">Reach out to us directly.</p>
+            <h2>Direct Lines</h2>
+            <p>Prefer talking directly? Use the details below to reach out instantly.</p>
             
             <div class="contact-method">
                 <i class="fas fa-phone-alt"></i>
-                <div>
-                    <h4>Call Us</h4>
+                <div class="break-text">
+                    <h4>Voice Call</h4>
                     <a href="tel:+917249828812">+91 7249828812</a>
                 </div>
             </div>
             <div class="contact-method">
                 <i class="fab fa-whatsapp"></i>
-                <div>
-                    <h4>WhatsApp</h4>
+                <div class="break-text">
+                    <h4>WhatsApp Chat</h4>
                     <a href="https://wa.me/917249828812">+91 7249828812</a>
                 </div>
             </div>
+            <!-- Email is explicitly forced to break if screen is too small -->
             <div class="contact-method">
                 <i class="fas fa-envelope"></i>
-                <div>
-                    <h4>Email Us</h4>
-                    <!-- E-mail address is hidden behind this short text to fix overflow -->
-                    <a href="mailto:qwickdesksolutions@outlook.com">Click here to send email</a>
+                <div class="break-text" style="width: 100%;">
+                    <h4>Email Inquiry</h4>
+                    <a href="mailto:qwickdesksolutions@outlook.com">qwickdesksolutions@outlook.com</a>
                 </div>
             </div>
         </div>
 
-        <!-- Formspree Form -->
-        <div class="glass-card form-card reveal delay-1">
-            <div data-fs-success>Thank you! Your request is received.</div>
+        <!-- Formspree Lead Form -->
+        <div class="form-card reveal delay-1">
+            <div data-fs-success><i class="fas fa-check-circle"></i> Awesome! Your details have been received.</div>
+            
             <form id="qwickdesk-form">
                 <div class="input-group">
-                    <input type="text" name="name" placeholder="Your Name or Business Name" data-fs-field required>
+                    <label>Business / Full Name</label>
+                    <input type="text" name="name" placeholder="E.g. Sharma Enterprise" data-fs-field required>
                     <span data-fs-error="name"></span>
                 </div>
                 <div class="input-group">
-                    <input type="tel" name="phone" placeholder="WhatsApp Number" data-fs-field required>
+                    <label>WhatsApp Number</label>
+                    <input type="tel" name="phone" placeholder="+91" data-fs-field required>
                     <span data-fs-error="phone"></span>
                 </div>
                 <div class="input-group">
+                    <label>Desired Package</label>
                     <select name="plan" data-fs-field required>
-                        <option value="" disabled selected>-- Select a Plan --</option>
-                        <option value="Starter">Starter Plan (₹699)</option>
-                        <option value="Growth">Growth Plan (₹999)</option>
-                        <option value="Pro">Pro Plan (₹1,499)</option>
-                        <option value="Dynamic">Dynamic Website</option>
+                        <option value="" disabled selected>-- Select Requirement --</option>
+                        <option value="Starter Plan">Starter (₹699)</option>
+                        <option value="Growth Plan">Growth (₹999)</option>
+                        <option value="Pro Plan">Pro (₹1,499)</option>
+                        <option value="Custom Dynamic">Custom Dynamic Work</option>
                     </select>
                 </div>
                 <div class="input-group">
-                    <textarea name="message" rows="4" placeholder="Your requirements..." data-fs-field required></textarea>
+                    <label>Project Brief</label>
+                    <textarea name="message" rows="4" placeholder="Briefly explain what you need..." data-fs-field required></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary" style="width: 100%;" data-fs-submit-btn>Submit Details</button>
+                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 18px;" data-fs-submit-btn>Send Details <i class="fas fa-paper-plane" style="margin-left: 5px;"></i></button>
             </form>
         </div>
+
     </section>
 
+    <!-- Essential Scripts for Formspree Ajax -->
     <script>
       window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
-      /* User's original Endpoint ID */
       formspree('initForm', { formElement: '#qwickdesk-form', formId: 'xaqrevgl' });
     </script>
     <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
