@@ -29,14 +29,30 @@
         .input-group input, .input-group select, .input-group textarea { width: 100%; padding: 16px; border: 2px solid #f1f5f9; border-radius: 12px; background: #f8fafc; outline: none; font-size: 1rem; transition: var(--transition); }
         .input-group input:focus, .input-group select:focus, .input-group textarea:focus { border-color: var(--primary-light); background: white; box-shadow: 0 0 0 4px rgba(37,99,235,0.1); }
         
-        [data-fs-success] { display: none; background: #dcfce7; color: #166534; padding: 20px; border-radius: 12px; margin-bottom: 25px; font-weight: 700; text-align: center; border: 1px solid #bbf7d0; }
-        [data-fs-error]:not([data-fs-error=""]) { display: block; color: #dc2626; font-size: 14px; margin-top: 8px; font-weight: 600; }
-        [data-fs-error=""] { display: none; }
+        /* Payment Box UI with Copy Button */
+        .payment-box { background: #f8fafc; border: 2px dashed var(--primary-light); padding: 25px; border-radius: 16px; margin-bottom: 30px; text-align: center; }
+        .payment-box h4 { color: var(--primary); font-size: 1.2rem; margin-bottom: 15px; }
+        
+        .upi-container { display: flex; align-items: center; justify-content: center; gap: 15px; background: white; padding: 12px 20px; border-radius: 12px; border: 1px solid #e2e8f0; width: fit-content; margin: 0 auto 15px; box-shadow: var(--shadow-sm); }
+        .upi-id { font-size: 1.3rem; font-weight: 800; color: var(--dark); letter-spacing: 0.5px; }
+        
+        .copy-btn { background: var(--primary-light); color: white; border: none; padding: 8px 16px; border-radius: 8px; font-size: 0.9rem; font-weight: 700; cursor: pointer; transition: var(--transition); display: flex; align-items: center; gap: 6px; }
+        .copy-btn:hover { background: var(--primary); transform: translateY(-2px); }
+        
+        .payment-box p { font-size: 0.95rem; color: var(--text-muted); }
+
+        /* Success Message UI (Hidden by default) */
+        #success-message { display: none; text-align: center; padding: 40px 20px; background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 20px; }
+        #success-message i { font-size: 60px; color: var(--secondary); margin-bottom: 20px; }
+        #success-message h3 { font-size: 2rem; color: #166534; margin-bottom: 15px; }
+        #success-message p { font-size: 1.1rem; color: #15803d; font-weight: 600; line-height: 1.6; }
 
         @media (max-width: 991px) {
             .contact-wrap { grid-template-columns: 1fr; gap: 40px; }
             .info-card, .form-card { padding: 40px 20px; }
             .info-card h2 { font-size: 2rem; }
+            .upi-container { flex-direction: column; gap: 10px; width: 100%; }
+            .copy-btn { width: 100%; justify-content: center; }
         }
     </style>
 </head>
@@ -71,69 +87,149 @@
             
             <div class="contact-method">
                 <i class="fas fa-phone-alt"></i>
-                <div>
+                <div class="break-text">
                     <h4>Voice Call</h4>
                     <a href="tel:+917249828812">+91 7249828812</a>
                 </div>
             </div>
             <div class="contact-method">
                 <i class="fab fa-whatsapp"></i>
-                <div>
+                <div class="break-text">
                     <h4>WhatsApp Chat</h4>
                     <a href="https://wa.me/917249828812">+91 7249828812</a>
                 </div>
             </div>
-            <!-- Email is now just clickable text, no long breaking text -->
             <div class="contact-method">
                 <i class="fas fa-envelope"></i>
-                <div>
+                <div class="break-text" style="width: 100%;">
                     <h4>Email Inquiry</h4>
                     <a href="mailto:qwickdesksolutions@outlook.com">Click to send email &rarr;</a>
                 </div>
             </div>
         </div>
 
-        <!-- Formspree Lead Form -->
+        <!-- Right Side Container -->
         <div class="form-card reveal delay-1">
-            <div data-fs-success><i class="fas fa-check-circle"></i> Awesome! Your details have been received.</div>
             
-            <form id="qwickdesk-form">
+            <!-- Success Message (This shows AFTER form is hidden) -->
+            <div id="success-message">
+                <i class="fas fa-check-circle"></i>
+                <h3>Details Received!</h3>
+                <p>Please wait for payment confirmation.<br>Our expert team will connect with you shortly to start the project.</p>
+            </div>
+            
+            <!-- Form -->
+            <form id="qwickdesk-form" action="https://formspree.io/f/xaqrevgl" method="POST">
+                
+                <!-- UPI Payment Box with Copy Option -->
+                <div class="payment-box">
+                    <h4>Secure Payment via UPI</h4>
+                    <div class="upi-container">
+                        <span class="upi-id" id="upi-text">7249828812@upi</span>
+                        <button type="button" class="copy-btn" onclick="copyUPI()" id="copy-btn-element">
+                            <i class="fas fa-copy"></i> Copy ID
+                        </button>
+                    </div>
+                    <p>Make the payment for your selected plan and enter the UTR/Reference number below.</p>
+                </div>
+
                 <div class="input-group">
                     <label>Business / Full Name</label>
-                    <input type="text" name="name" placeholder="E.g. Sharma Enterprise" data-fs-field required>
-                    <span data-fs-error="name"></span>
+                    <input type="text" name="name" placeholder="E.g. Sharma Enterprise" required>
                 </div>
                 <div class="input-group">
                     <label>WhatsApp Number</label>
-                    <input type="tel" name="phone" placeholder="+91" data-fs-field required>
-                    <span data-fs-error="phone"></span>
+                    <input type="tel" name="phone" placeholder="+91" required>
                 </div>
                 <div class="input-group">
                     <label>Desired Package</label>
-                    <select name="plan" data-fs-field required>
+                    <select name="plan" required>
                         <option value="" disabled selected>-- Select Requirement --</option>
-                        <option value="Starter Plan">Starter (₹699)</option>
-                        <option value="Growth Plan">Growth (₹999)</option>
-                        <option value="Pro Plan">Pro (₹1,499)</option>
+                        <option value="Starter Plan (699)">Starter (₹699)</option>
+                        <option value="Growth Plan (999)">Growth (₹999)</option>
+                        <option value="Pro Plan (1499)">Pro (₹1,499)</option>
                         <option value="Custom Dynamic">Custom Dynamic Work</option>
                     </select>
                 </div>
+                
+                <!-- UTR Input -->
+                <div class="input-group">
+                    <label>UTR / UPI Reference Number</label>
+                    <input type="text" name="utr_number" placeholder="Enter 12-digit transaction number" required>
+                </div>
+
                 <div class="input-group">
                     <label>Project Brief</label>
-                    <textarea name="message" rows="4" placeholder="Briefly explain what you need..." data-fs-field required></textarea>
+                    <textarea name="message" rows="4" placeholder="Briefly explain what you need..." required></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 18px;" data-fs-submit-btn>Send Details <i class="fas fa-paper-plane" style="margin-left: 5px;"></i></button>
+                
+                <button type="submit" id="submit-btn" class="btn btn-primary" style="width: 100%; padding: 18px;">
+                    Submit & Confirm Payment <i class="fas fa-arrow-right" style="margin-left: 5px;"></i>
+                </button>
+                <p id="error-msg" style="display:none; color: red; margin-top: 15px; text-align: center; font-weight: 600;">Oops! There was a problem submitting your form. Please try again.</p>
             </form>
         </div>
 
     </section>
 
-    <!-- Essential Scripts for Formspree Ajax -->
+    <!-- Custom JavaScript for Copy UPI and Form Submission -->
     <script>
-      window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
-      formspree('initForm', { formElement: '#qwickdesk-form', formId: 'xaqrevgl' });
+        // Copy UPI Functionality
+        function copyUPI() {
+            var upiText = document.getElementById("upi-text").innerText;
+            navigator.clipboard.writeText(upiText).then(function() {
+                var copyBtn = document.getElementById("copy-btn-element");
+                copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                copyBtn.style.background = "var(--secondary)"; // Change color to green
+                
+                // Revert back after 3 seconds
+                setTimeout(function() {
+                    copyBtn.innerHTML = '<i class="fas fa-copy"></i> Copy ID';
+                    copyBtn.style.background = "var(--primary-light)";
+                }, 3000);
+            });
+        }
+
+        // Form Submit Logic
+        var form = document.getElementById("qwickdesk-form");
+        var successMessage = document.getElementById("success-message");
+        var submitBtn = document.getElementById("submit-btn");
+        var errorMsg = document.getElementById("error-msg");
+
+        form.addEventListener("submit", async function(event) {
+            event.preventDefault(); // Default submit ko roko
+            
+            // Button text change to show loading
+            submitBtn.innerHTML = 'Processing... <i class="fas fa-spinner fa-spin" style="margin-left: 5px;"></i>';
+            submitBtn.disabled = true;
+
+            var data = new FormData(event.target);
+            
+            // Formspree par data bhejo
+            fetch(event.target.action, {
+                method: form.method,
+                body: data,
+                headers: { 'Accept': 'application/json' }
+            }).then(response => {
+                if (response.ok) {
+                    // Success: Form hide karo aur Message show karo
+                    form.style.display = "none";
+                    successMessage.style.display = "block";
+                    // Scroll to top of the message so user sees it clearly
+                    successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                } else {
+                    // Error handle
+                    errorMsg.style.display = "block";
+                    submitBtn.innerHTML = 'Submit & Confirm Payment <i class="fas fa-arrow-right"></i>';
+                    submitBtn.disabled = false;
+                }
+            }).catch(error => {
+                errorMsg.style.display = "block";
+                submitBtn.innerHTML = 'Submit & Confirm Payment <i class="fas fa-arrow-right"></i>';
+                submitBtn.disabled = false;
+            });
+        });
     </script>
-    <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
     <script src="script.js"></script>
 </body>
 </html>
