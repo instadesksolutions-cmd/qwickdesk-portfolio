@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | QwickDesk Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .service-container { max-width: 1200px; margin: 0 auto 100px; padding: 0 5%; position: relative; z-index: 10; }
+        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
+        
+        .service-card { padding: 50px 40px; text-align: left; }
+        .icon-wrapper { width: 70px; height: 70px; background: linear-gradient(135deg, rgba(58, 134, 255, 0.1), rgba(255, 0, 110, 0.1)); display: flex; align-items: center; justify-content: center; border-radius: 20px; margin-bottom: 25px; border: 1px solid var(--glass-border); }
+        .icon-wrapper i { font-size: 32px; }
+        .service-card h3 { font-size: 1.8rem; margin-bottom: 15px; }
+        .service-card p { font-size: 1.05rem; }
+
+        @media (max-width: 768px) {
+            .service-card { padding: 40px 30px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2" style="bottom: 50%; right: 20%;"></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="logo">QwickDesk<span>.</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html" class="active">Services</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="contact.html" class="btn btn-primary" style="color:white;">Get a Quote</a></li>
+        </ul>
+        <div class="hamburger"><i class="fas fa-bars"></i></div>
+    </nav>
+
+    <header class="page-header reveal">
+        <h1 class="text-gradient">What We Do</h1>
+        <p>Premium digital solutions that transform your local business into an authoritative brand.</p>
+    </header>
+
+    <section class="service-container">
+        <div class="service-grid">
+            <!-- Box 1 -->
+            <div class="glass-card service-card reveal delay-1">
+                <div class="icon-wrapper"><i class="fas fa-paint-brush text-gradient"></i></div>
+                <h3>Custom UI Design</h3>
+                <p>We don't use boring templates. Every pixel is customized to represent your brand's unique identity, ensuring visitors trust you instantly.</p>
+            </div>
+            
+            <!-- Box 2 -->
+            <div class="glass-card service-card reveal delay-2">
+                <div class="icon-wrapper"><i class="fas fa-bolt text-gradient"></i></div>
+                <h3>Speed Optimization</h3>
+                <p>A slow website kills sales. We write clean, optimized code so your website loads in under 2 seconds, keeping customers engaged.</p>
+            </div>
+
+            <!-- Box 3 -->
+            <div class="glass-card service-card reveal delay-3">
+                <div class="icon-wrapper"><i class="fas fa-mobile-alt text-gradient"></i></div>
+                <h3>Mobile-First Layout</h3>
+                <p>Since 90% of searches happen on phones, we ensure your website perfectly auto-adjusts to any screen, looking like a high-end app.</p>
+            </div>
+
+            <!-- Box 4 -->
+            <div class="glass-card service-card reveal delay-1">
+                <div class="icon-wrapper"><i class="fas fa-map-marker-alt text-gradient"></i></div>
+                <h3>Local SEO & GMB</h3>
+                <p>We integrate your site with Google Maps and local search structures, making you the #1 choice when people search in your area.</p>
+            </div>
+        </div>
+    </section>
+
+    <a href="https://wa.me/917249828812" class="floating-wa" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <footer>
+        <p>&copy; 2026 QwickDesk Solutions.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
