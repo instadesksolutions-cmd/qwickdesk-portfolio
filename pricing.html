@@ -78,7 +78,7 @@
                 <li><i class="fas fa-check-circle"></i> WhatsApp Floating Button</li>
                 <li><i class="fas fa-check-circle"></i> Basic Speed Setup</li>
             </ul>
-            <button onclick="openCheckout('Starter', '699')" class="btn btn-outline" style="width: 100%;">Choose Starter</button>
+            <button type="button" onclick="openCheckout('Starter', '699')" class="btn btn-outline" style="width: 100%;">Choose Starter</button>
         </div>
 
         <div class="price-card popular reveal">
@@ -91,7 +91,7 @@
                 <li><i class="fas fa-check-circle"></i> Google Maps Setup</li>
                 <li><i class="fas fa-check-circle"></i> Advanced Animations</li>
             </ul>
-            <button onclick="openCheckout('Growth', '999')" class="btn btn-primary" style="width: 100%; padding: 18px;">Choose Growth</button>
+            <button type="button" onclick="openCheckout('Growth', '999')" class="btn btn-primary" style="width: 100%; padding: 18px;">Choose Growth</button>
         </div>
 
         <div class="price-card reveal delay-2">
@@ -103,13 +103,13 @@
                 <li><i class="fas fa-check-circle"></i> Glassmorphism FX</li>
                 <li><i class="fas fa-check-circle"></i> Priority Delivery</li>
             </ul>
-            <button onclick="openCheckout('Pro', '1499')" class="btn btn-outline" style="width: 100%;">Choose Pro</button>
+            <button type="button" onclick="openCheckout('Pro', '1499')" class="btn btn-outline" style="width: 100%;">Choose Pro</button>
         </div>
     </section>
 
     <div id="paymentModal" class="payment-modal-overlay">
         <div class="payment-card">
-            <button class="close-modal" onclick="closeCheckout()"><i class="fas fa-times"></i></button>
+            <button type="button" class="close-modal" onclick="closeCheckout()"><i class="fas fa-times"></i></button>
             <div style="text-align: center; margin-bottom: 20px;">
                 <h3 style="font-size: 1.5rem; color: #0f172a; margin-bottom: 5px;">Secure UPI Checkout</h3>
                 <p id="selectedPlanText" style="font-size: 0.9rem; color: #64748b; font-weight: 600;">Selected Plan: Growth (₹999)</p>
@@ -162,7 +162,10 @@
             currentPlanName = planName;
             currentPlanPrice = planPrice;
             
-            document.getElementById('selectedPlanText').innerText = `Selected Plan: ${planName} (₹${planPrice})`;
+            const planTextEl = document.getElementById('selectedPlanText');
+            if (planTextEl) {
+                planTextEl.innerText = `Selected Plan: ${planName} (₹${planPrice})`;
+            }
             
             // Generate UPI Intent Link dynamically based on price
             const upiID = "shjadhav112-3@okaxis";
@@ -171,48 +174,67 @@
             
             const upiIntentUrl = `upi://pay?pa=${encodeURIComponent(upiID)}&pn=${encodeURIComponent(payeeName)}&am=${encodeURIComponent(planPrice + '.00')}&cu=INR&tn=${encodeURIComponent(transactionNote)}`;
             
-            document.getElementById('upiIntentBtn').setAttribute('href', upiIntentUrl);
-            document.getElementById('paymentModal').classList.add('active');
+            const upiIntentBtn = document.getElementById('upiIntentBtn');
+            if (upiIntentBtn) {
+                upiIntentBtn.setAttribute('href', upiIntentUrl);
+            }
+            
+            const paymentModal = document.getElementById('paymentModal');
+            if (paymentModal) {
+                paymentModal.classList.add('active');
+            }
         }
 
         function closeCheckout() {
-            document.getElementById('paymentModal').classList.remove('active');
+            const paymentModal = document.getElementById('paymentModal');
+            if (paymentModal) {
+                paymentModal.classList.remove('active');
+            }
         }
 
         function copyUpiId() {
-            const upiText = document.getElementById('upiIdText').innerText;
-            navigator.clipboard.writeText(upiText).then(() => {
-                alert('UPI ID copied to clipboard: ' + upiText);
-            });
+            const upiIdText = document.getElementById('upiIdText');
+            if (upiIdText) {
+                const upiText = upiIdText.innerText;
+                navigator.clipboard.writeText(upiText).then(() => {
+                    alert('UPI ID copied to clipboard: ' + upiText);
+                });
+            }
         }
 
         function submitUtrForm(e) {
             e.preventDefault();
-            const name = document.getElementById('clientName').value;
-            const phone = document.getElementById('clientPhone').value;
-            const utr = document.getElementById('clientUtr').value;
+            const nameEl = document.getElementById('clientName');
+            const phoneEl = document.getElementById('clientPhone');
+            const utrEl = document.getElementById('clientUtr');
 
-            let waText = `*New Paid Order Received!* 💰\n\n`;
-            waText += `*Plan:* ${currentPlanName} (₹${currentPlanPrice})\n`;
-            waText += `*Name:* ${name}\n`;
-            waText += `*Phone:* ${phone}\n`;
-            waText += `*UTR / Ref No:* ${utr}\n\n`;
-            waText += `Please verify and initiate my project development.`;
+            if (nameEl && phoneEl && utrEl) {
+                const name = nameEl.value;
+                const phone = phoneEl.value;
+                const utr = utrEl.value;
 
-            const adminWhatsApp = "917249828812";
-            const waLink = `https://wa.me/${adminWhatsApp}?text=${encodeURIComponent(waText)}`;
-            
-            window.open(waLink, '_blank');
-            closeCheckout();
-        }
+                let waText = `*New Paid Order Received!* 💰\n\n`;
+                waText += `*Plan:* ${currentPlanName} (₹${currentPlanPrice})\n`;
+                waText += `*Name:* ${name}\n`;
+                waText += `*Phone:* ${phone}\n`;
+                waText += `*UTR / Ref No:* ${utr}\n\n`;
+                waText += `Please verify and initiate my project development.`;
 
-        // Close modal on outside click
-        window.onclick = function(event) {
-            const modal = document.getElementById('paymentModal');
-            if (event.target == modal) {
+                const adminWhatsApp = "917249828812";
+                const waLink = `https://wa.me/${adminWhatsApp}?text=${encodeURIComponent(waText)}`;
+                
+                window.open(waLink, '_blank');
                 closeCheckout();
             }
         }
+
+        // Close modal on outside click
+        window.addEventListener('click', (event) => {
+            const modal = document.getElementById('paymentModal');
+            if (event.target === modal) {
+                closeCheckout();
+            }
+        });
     </script>
 </body>
 </html>
