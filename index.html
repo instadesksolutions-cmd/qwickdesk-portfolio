@@ -27,6 +27,17 @@
         .process-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-md); border-bottom: 4px solid var(--primary-light); }
         .process-icon { width: 80px; height: 80px; background: #eff6ff; color: var(--primary-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; margin: 0 auto 20px; }
 
+        /* Compact Live Demo Widget Section */
+        .demo-preview-section { max-width: 900px; margin: 60px auto; padding: 0 20px; text-align: center; }
+        .demo-widget-card { background: white; border-radius: 20px; box-shadow: var(--shadow-md); overflow: hidden; border: 1px solid #e2e8f0; transition: all 0.3s ease; }
+        .demo-widget-card:hover { box-shadow: var(--shadow-glow); }
+        .demo-widget-header { background: #f8fafc; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e2e8f0; }
+        .demo-widget-header span { font-weight: 600; color: var(--dark); font-size: 1rem; display: flex; align-items: center; gap: 8px; }
+        .demo-iframe-container { position: relative; width: 100%; height: 350px; background: #0f172a; }
+        .demo-iframe-container iframe { width: 100%; height: 100%; border: none; }
+        .demo-overlay-btn { position: absolute; bottom: 20px; right: 20px; background: var(--primary); color: white; padding: 10px 20px; border-radius: 30px; font-weight: 600; text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.3); transition: transform 0.2s; }
+        .demo-overlay-btn:hover { transform: scale(1.05); }
+
         /* Big CTA Banner */
         .cta-banner { background: linear-gradient(135deg, var(--primary-light), var(--primary)); text-align: center; padding: 80px 20px; color: white; border-radius: 40px; margin: 100px 5%; box-shadow: var(--shadow-glow); }
         .cta-banner h2 { color: white; font-size: 3rem; margin-bottom: 20px; }
@@ -37,6 +48,7 @@
             .hero-buttons { justify-content: center; }
             .process-grid { grid-template-columns: 1fr; }
             .cta-banner h2 { font-size: 2.2rem; }
+            .demo-iframe-container { height: 280px; }
         }
     </style>
 </head>
@@ -61,7 +73,6 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="section-padding hero">
         <div class="hero-grid">
             <div class="hero-content reveal">
@@ -78,7 +89,23 @@
         </div>
     </section>
 
-    <!-- Knowledge / Why Digital Section -->
+    <section class="demo-preview-section reveal">
+        <div class="section-title" style="margin-bottom: 25px;">
+            <h2>Live Interactive Preview</h2>
+            <p>Experience our high-speed worker platform in real-time right here.</p>
+        </div>
+        <div class="demo-widget-card">
+            <div class="demo-widget-header">
+                <span><i class="fas fa-circle" style="color: #22c55e; font-size: 10px;"></i> qwickdesk-live-demos.instadesksolutions.workers.dev</span>
+                <a href="https://qwickdesk-live-demos.instadesksolutions.workers.dev" target="_blank" style="font-size: 0.9rem; color: var(--primary); text-decoration: none; font-weight: 600;">Full Screen <i class="fas fa-external-link-alt"></i></a>
+            </div>
+            <div class="demo-iframe-container">
+                <iframe src="https://qwickdesk-live-demos.instadesksolutions.workers.dev" title="QwickDesk Live Demo"></iframe>
+                <a href="https://qwickdesk-live-demos.instadesksolutions.workers.dev" target="_blank" class="demo-overlay-btn"><i class="fas fa-rocket"></i> Visit Live Demo</a>
+            </div>
+        </div>
+    </section>
+
     <section class="knowledge-section reveal">
         <div class="section-title">
             <h2 style="color:white;">Why Your Business Needs Us</h2>
@@ -103,7 +130,6 @@
         </div>
     </section>
 
-    <!-- Core Process Section -->
     <section class="section-padding">
         <div class="section-title reveal">
             <h2>Our Flawless Process</h2>
@@ -128,7 +154,6 @@
         </div>
     </section>
 
-    <!-- Massive CTA Banner -->
     <section class="cta-banner reveal">
         <h2>Ready to Scale Your Revenue?</h2>
         <p style="font-size: 1.2rem; margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto;">Stop losing clients to competitors who have a better online presence. Let's build something extraordinary today.</p>
