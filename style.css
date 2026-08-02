@@ -35,7 +35,7 @@ h1, h2, h3, h4 { color: var(--dark); font-weight: 800; line-height: 1.2; letter-
 .navbar { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; position: fixed; width: 100%; top: 0; z-index: 1000; transition: var(--transition); background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.05); }
 .navbar.scrolled { box-shadow: var(--shadow-md); padding: 12px 5%; }
 
-/* LOGO CSS FIX */
+/* LOGO CSS */
 .logo { display: flex; align-items: center; font-size: 26px; font-weight: 800; color: var(--dark); letter-spacing: -1px; }
 .logo img { height: 40px; width: auto; margin-right: 10px; border-radius: 0; display: block; }
 .logo span { color: var(--primary-light); }
@@ -65,13 +65,35 @@ h1, h2, h3, h4 { color: var(--dark); font-weight: 800; line-height: 1.2; letter-
 
 footer { background: var(--dark); color: var(--white); text-align: center; padding: 50px 20px; border-radius: 40px 40px 0 0; margin-top: 50px; }
 
+/* FIX FOR MOBILE VIEW OVERLAP (160740.jpg) */
 @media (max-width: 991px) {
+    .navbar {
+        padding: 10px 15px;
+    }
+    .logo {
+        font-size: 1.3rem; /* Reduced logo size */
+        white-space: nowrap;
+    }
+    .logo img {
+        height: 30px; /* Reduced logo image size */
+        margin-right: 6px;
+    }
+    
+    .nav-actions { 
+        gap: 8px; /* Reduced space between button and hamburger */
+        z-index: 1001; 
+    }
+    .nav-actions .btn { 
+        padding: 6px 12px; /* Smaller button padding */
+        font-size: 0.8rem; /* Smaller font size for the button */
+        white-space: nowrap;
+    }
+    
     .nav-links { position: fixed; top: 0; left: -100%; background: var(--white); width: 100%; height: 100vh; flex-direction: column; justify-content: center; text-align: center; transition: 0.4s ease-in-out; box-shadow: 5px 0 15px rgba(0,0,0,0.1); z-index: 999; }
     .nav-links.active { left: 0; }
     .nav-links a { font-size: 1.5rem; margin-bottom: 25px; display: block; }
-    .hamburger { display: block; z-index: 1001; }
-    .nav-actions { z-index: 1001; }
-    .nav-actions .btn { padding: 10px 18px; font-size: 0.9rem; }
+    .hamburger { display: block; z-index: 1001; font-size: 24px; }
+    
     .section-title h2 { font-size: 2.2rem; }
 }
 
