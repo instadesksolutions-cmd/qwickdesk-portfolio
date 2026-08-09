@@ -10,7 +10,7 @@
     
     <link rel="icon" href="favicon.png" type="image/png">
 
-    <!-- 🚨 Tailwind CSS CDN & Config Added Here 🚨 -->
+    <!-- Tailwind CSS CDN & Config -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -37,7 +37,6 @@
     <!-- Navigation Bar -->
     <nav class="navbar sticky top-0 z-50 bg-white/90 backdrop-blur-lg border-b border-slate-200 transition-all duration-300">
         <div class="container mx-auto px-5 h-20 flex justify-between items-center max-w-7xl">
-            <!-- Text/Icon Logo (No Image) -->
             <a href="index.html" class="logo flex items-center gap-2 text-2xl font-black text-primary-dark">
                 <div class="w-10 h-10 bg-primary-dark text-white rounded-xl flex items-center justify-center shadow-lg text-lg">
                     <i class="fas fa-bolt"></i>
@@ -45,7 +44,6 @@
                 QwickDesk<span class="text-secondary">.</span>
             </a>
 
-            <!-- Desktop Menu -->
             <div class="nav-menu hidden lg:flex items-center gap-8 font-semibold text-slate-600 text-sm">
                 <a href="index.html" class="hover:text-primary transition">Home</a>
                 <a href="services.html" class="hover:text-primary transition">Our Expertise</a>
@@ -54,7 +52,6 @@
                 <a href="contact.html" class="hover:text-primary transition">Contact</a>
             </div>
 
-            <!-- Nav Actions -->
             <div class="nav-actions flex items-center gap-4">
                 <button onclick="openLoginModal()" class="btn-portal hidden sm:flex items-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-800 px-5 py-2.5 rounded-full font-bold text-sm transition border border-slate-300 shadow-sm">
                     <i class="fas fa-user-circle text-primary"></i> Client Portal
@@ -116,7 +113,6 @@
 
     <!-- Pricing Hero -->
     <header class="pt-24 pb-16 lg:pt-32 lg:pb-24 bg-primary-dark text-white text-center relative overflow-hidden">
-        <!-- Abstract Background -->
         <div class="absolute inset-0 opacity-20">
             <div class="absolute top-0 right-0 w-96 h-96 bg-primary rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3"></div>
         </div>
@@ -125,7 +121,7 @@
             <span class="text-secondary font-bold tracking-widest uppercase text-sm mb-4 block">Clear & Transparent</span>
             <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black mb-6 tracking-tight">Investment Plans</h1>
             <p class="text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto">
-                High-value digital assets at costs designed for growing businesses. Select a plan below and enter our secure portal to checkout.
+                High-value digital assets at costs designed for growing businesses. Select a plan below or watch them rotate automatically.
             </p>
         </div>
     </header>
@@ -152,7 +148,6 @@
                             <li class="flex items-center gap-3 text-slate-400"><i class="fas fa-times-circle text-slate-300 text-lg shrink-0"></i> No Advanced SEO</li>
                         </ul>
                     </div>
-                    <!-- Triggers Client Portal Modal -->
                     <button onclick="openLoginModal()" class="w-full bg-slate-100 hover:bg-primary hover:text-white text-primary-dark font-bold py-4 rounded-xl transition text-sm">
                         Choose Starter
                     </button>
@@ -178,7 +173,6 @@
                             <li class="flex items-center gap-3 bg-white/10 p-2.5 rounded-lg border border-white/5"><i class="fas fa-star text-secondary text-lg shrink-0"></i> GMB Local SEO Tags</li>
                         </ul>
                     </div>
-                    <!-- Triggers Client Portal Modal -->
                     <button onclick="openLoginModal()" class="w-full bg-secondary hover:bg-white hover:text-primary-dark text-white font-black py-4 rounded-xl transition shadow-lg text-base">
                         Choose Growth
                     </button>
@@ -201,7 +195,6 @@
                             <li class="flex items-center gap-3 bg-slate-50 p-2.5 rounded-lg border border-slate-100"><i class="fas fa-tools text-primary text-lg shrink-0"></i> Free Maintenance</li>
                         </ul>
                     </div>
-                    <!-- Triggers Client Portal Modal -->
                     <button onclick="openLoginModal()" class="w-full bg-slate-100 hover:bg-primary hover:text-white text-primary-dark font-bold py-4 rounded-xl transition text-sm">
                         Choose Pro
                     </button>
@@ -210,76 +203,30 @@
         </div>
     </section>
 
-    <!-- Feature Comparison Table -->
-    <section class="py-20 bg-white">
-        <div class="container mx-auto px-5 max-w-6xl">
-            <div class="text-center mb-16 reveal-fade-up">
-                <h2 class="text-3xl md:text-4xl font-black text-primary-dark mb-4">Detailed Feature Comparison</h2>
-                <p class="text-slate-600 text-lg max-w-2xl mx-auto">Still unsure? Compare our plans side-by-side to find the perfect fit for your digital growth strategy.</p>
+    <!-- ========================================================
+       AUTOMATED MOBILE PLAN SPOTLIGHT (Replaces the broken table on mobile)
+       ======================================================== -->
+    <section class="py-16 bg-white border-t border-slate-200 lg:hidden">
+        <div class="container mx-auto px-5 max-w-md text-center">
+            <span class="text-secondary font-bold tracking-widest uppercase text-xs mb-2 block">Interactive Spotlight</span>
+            <h2 class="text-2xl font-black text-primary-dark mb-6">Automatic Plan Animation</h2>
+            
+            <!-- Animated Showcase Card Container -->
+            <div id="planShowcaseCard" class="bg-slate-900 text-white p-8 rounded-[2.5rem] shadow-2xl relative overflow-hidden transition-all duration-700 border-2 border-primary/30">
+                <div class="absolute -top-10 -right-10 w-40 h-40 bg-secondary/20 rounded-full blur-2xl"></div>
+                
+                <div id="showcaseContent" class="relative z-10 transition-opacity duration-500 opacity-100">
+                    <!-- Dynamic details injected via JS -->
+                </div>
             </div>
 
-            <div class="bg-slate-50 rounded-3xl border border-slate-200 overflow-hidden shadow-sm reveal-fade-up overflow-x-auto">
-                <table class="w-full text-left border-collapse min-w-[800px]">
-                    <thead>
-                        <tr class="bg-primary-dark text-white">
-                            <th class="p-6 font-bold uppercase tracking-wider text-sm border-r border-white/10 w-1/4">Features</th>
-                            <th class="p-6 font-bold text-center border-r border-white/10 w-1/4">Starter<br><span class="text-xs text-slate-400 font-normal">₹999</span></th>
-                            <th class="p-6 font-bold text-center border-r border-white/10 w-1/4 bg-secondary/20 text-secondary">Growth<br><span class="text-xs text-slate-200 font-normal">₹1,699</span></th>
-                            <th class="p-6 font-bold text-center w-1/4">Pro Suite<br><span class="text-xs text-slate-400 font-normal">₹2,999</span></th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-slate-200 bg-white text-sm">
-                        <tr class="hover:bg-slate-50 transition">
-                            <td class="p-5 font-bold text-slate-800 border-r border-slate-200">Page Count</td>
-                            <td class="p-5 text-center text-slate-600 border-r border-slate-200">1 Page</td>
-                            <td class="p-5 text-center font-bold text-primary border-r border-slate-200 bg-slate-50/50">Up to 7 Pages</td>
-                            <td class="p-5 text-center text-slate-600">Custom / Unlimited</td>
-                        </tr>
-                        <tr class="hover:bg-slate-50 transition">
-                            <td class="p-5 font-bold text-slate-800 border-r border-slate-200">Mobile Responsive</td>
-                            <td class="p-5 text-center border-r border-slate-200"><i class="fas fa-check text-emerald-500"></i></td>
-                            <td class="p-5 text-center border-r border-slate-200 bg-slate-50/50"><i class="fas fa-check text-emerald-500"></i></td>
-                            <td class="p-5 text-center"><i class="fas fa-check text-emerald-500"></i></td>
-                        </tr>
-                        <tr class="hover:bg-slate-50 transition">
-                            <td class="p-5 font-bold text-slate-800 border-r border-slate-200">WhatsApp Lead Button</td>
-                            <td class="p-5 text-center border-r border-slate-200"><i class="fas fa-check text-emerald-500"></i></td>
-                            <td class="p-5 text-center border-r border-slate-200 bg-slate-50/50"><i class="fas fa-check text-emerald-500"></i></td>
-                            <td class="p-5 text-center"><i class="fas fa-check text-emerald-500"></i></td>
-                        </tr>
-                        <tr class="hover:bg-slate-50 transition">
-                            <td class="p-5 font-bold text-slate-800 border-r border-slate-200">Contact Form Integration</td>
-                            <td class="p-5 text-center border-r border-slate-200"><i class="fas fa-times text-slate-300"></i></td>
-                            <td class="p-5 text-center border-r border-slate-200 bg-slate-50/50"><i class="fas fa-check text-emerald-500"></i></td>
-                            <td class="p-5 text-center"><i class="fas fa-check text-emerald-500"></i></td>
-                        </tr>
-                        <tr class="hover:bg-slate-50 transition">
-                            <td class="p-5 font-bold text-slate-800 border-r border-slate-200">Google Maps Embedded</td>
-                            <td class="p-5 text-center border-r border-slate-200"><i class="fas fa-times text-slate-300"></i></td>
-                            <td class="p-5 text-center border-r border-slate-200 bg-slate-50/50"><i class="fas fa-check text-emerald-500"></i></td>
-                            <td class="p-5 text-center"><i class="fas fa-check text-emerald-500"></i></td>
-                        </tr>
-                        <tr class="hover:bg-slate-50 transition">
-                            <td class="p-5 font-bold text-slate-800 border-r border-slate-200">Local SEO & GMB Tags</td>
-                            <td class="p-5 text-center border-r border-slate-200"><i class="fas fa-times text-slate-300"></i></td>
-                            <td class="p-5 text-center border-r border-slate-200 bg-slate-50/50"><i class="fas fa-check text-emerald-500"></i></td>
-                            <td class="p-5 text-center"><i class="fas fa-check text-emerald-500"></i></td>
-                        </tr>
-                        <tr class="hover:bg-slate-50 transition">
-                            <td class="p-5 font-bold text-slate-800 border-r border-slate-200">Premium UI & Animations</td>
-                            <td class="p-5 text-center border-r border-slate-200"><i class="fas fa-times text-slate-300"></i></td>
-                            <td class="p-5 text-center border-r border-slate-200 bg-slate-50/50"><i class="fas fa-check text-emerald-500"></i></td>
-                            <td class="p-5 text-center"><i class="fas fa-check text-emerald-500"></i></td>
-                        </tr>
-                        <tr class="hover:bg-slate-50 transition">
-                            <td class="p-5 font-bold text-slate-800 border-r border-slate-200">Delivery Time</td>
-                            <td class="p-5 text-center text-slate-600 border-r border-slate-200">3-5 Days</td>
-                            <td class="p-5 text-center text-primary font-bold border-r border-slate-200 bg-slate-50/50">5-7 Days</td>
-                            <td class="p-5 text-center text-slate-600">Priority (Fastest)</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <!-- Dots Indicator / Manual Switcher -->
+            <div class="flex justify-center gap-3 mt-6">
+                <button onclick="switchShowcasePlan(0)" id="dot-0" class="w-3 h-3 rounded-full bg-primary transition-all duration-300" aria-label="Starter Plan"></button>
+                <button onclick="switchShowcasePlan(1)" id="dot-1" class="w-3 h-3 rounded-full bg-slate-300 transition-all duration-300" aria-label="Growth Plan"></button>
+                <button onclick="switchShowcasePlan(2)" id="dot-2" class="w-3 h-3 rounded-full bg-slate-300 transition-all duration-300" aria-label="Pro Suite Plan"></button>
             </div>
+            <p class="text-xs text-slate-400 mt-3">✨ Auto-rotating every 4 seconds or tap dots to switch</p>
         </div>
     </section>
 
@@ -318,7 +265,6 @@
         <div class="container mx-auto px-5 max-w-7xl">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
                 <div>
-                    <!-- Text/Icon Logo (No Image) -->
                     <a href="index.html" class="flex items-center gap-2 text-2xl font-black text-white mb-4">
                         <i class="fas fa-bolt text-secondary"></i> QwickDesk.
                     </a>
@@ -358,7 +304,7 @@
         </div>
     </footer>
 
-    <!-- Modal Scripts -->
+    <!-- Modal & Auto-Showcase Script -->
     <script>
         function openLoginModal() {
             const modal = document.getElementById('loginModal');
@@ -380,6 +326,121 @@
 
         document.getElementById('loginModal').addEventListener('click', function(e) {
             if (e.target === this) closeLoginModal();
+        });
+
+        // ==========================================
+        // AUTOMATED PLANS SHOWCASE ROTATOR LOGIC
+        // ==========================================
+        const plansData = [
+            {
+                name: "Starter Plan",
+                price: "₹999",
+                badge: "Basic Entry",
+                badgeColor: "bg-blue-500",
+                features: [
+                    "1 Page Landing Site",
+                    "Mobile Auto-Adjust",
+                    "WhatsApp Floating Button",
+                    "Basic Speed Setup"
+                ]
+            },
+            {
+                name: "Growth Plan",
+                price: "₹1,699",
+                badge: "Most Popular",
+                badgeColor: "bg-secondary",
+                features: [
+                    "Up to 7 Pages Setup",
+                    "Lead Generation Form",
+                    "Google Maps Setup",
+                    "Advanced Animations",
+                    "GMB Local SEO Tags"
+                ]
+            },
+            {
+                name: "Pro Suite Plan",
+                price: "₹2,999",
+                badge: "Maximum Power",
+                badgeColor: "bg-emerald-500",
+                features: [
+                    "Unlimited / Custom Pages",
+                    "Premium Graphic UI",
+                    "Glassmorphism FX",
+                    "Priority VIP Delivery",
+                    "Free Maintenance"
+                ]
+            }
+        ];
+
+        let currentPlanIndex = 0;
+        let showcaseInterval;
+
+        function renderShowcasePlan(index) {
+            const plan = plansData[index];
+            const contentEl = document.getElementById('showcaseContent');
+            
+            if (!contentEl) return;
+
+            // Fade out
+            contentEl.style.opacity = 0;
+
+            setTimeout(() => {
+                let html = `
+                    <span class="inline-block ${plan.badgeColor} text-white text-xs font-bold uppercase tracking-widest py-1 px-4 rounded-full mb-3 shadow-md">${plan.badge}</span>
+                    <h3 class="text-2xl font-black mb-1">${plan.name}</h3>
+                    <div class="text-4xl font-black text-secondary my-3">${plan.price}</div>
+                    <ul class="space-y-2.5 text-left text-sm text-slate-200 mb-6 bg-white/5 p-4 rounded-2xl border border-white/10">
+                `;
+                
+                plan.features.forEach(feat => {
+                    html += `<li class="flex items-center gap-2"><i class="fas fa-check-circle text-emerald-400"></i> ${feat}</li>`;
+                });
+
+                html += `
+                    </ul>
+                    <button onclick="openLoginModal()" class="w-full bg-primary hover:bg-primary-light text-white font-bold py-3.5 rounded-xl shadow-lg transition text-sm">
+                        Choose ${plan.name.split(' ')[0]} Now
+                    </button>
+                `;
+
+                contentEl.innerHTML = html;
+                // Fade in
+                contentEl.style.opacity = 1;
+
+                // Update dots
+                for(let i=0; i<3; i++) {
+                    const dot = document.getElementById(`dot-${i}`);
+                    if (dot) {
+                        if(i === index) {
+                            dot.className = "w-3 h-3 rounded-full bg-primary transition-all duration-300 scale-125";
+                        } else {
+                            dot.className = "w-3 h-3 rounded-full bg-slate-300 transition-all duration-300 scale-100";
+                        }
+                    }
+                }
+            }, 300);
+        }
+
+        function switchShowcasePlan(index) {
+            currentPlanIndex = index;
+            renderShowcasePlan(currentPlanIndex);
+            resetShowcaseTimer();
+        }
+
+        function autoRotatePlans() {
+            currentPlanIndex = (currentPlanIndex + 1) % plansData.length;
+            renderShowcasePlan(currentPlanIndex);
+        }
+
+        function resetShowcaseTimer() {
+            clearInterval(showcaseInterval);
+            showcaseInterval = setInterval(autoRotatePlans, 4000); // Rotates every 4 seconds automatically
+        }
+
+        // Initialize on load
+        window.addEventListener('DOMContentLoaded', () => {
+            renderShowcasePlan(0);
+            showcaseInterval = setInterval(autoRotatePlans, 4000);
         });
     </script>
     <script src="script.js"></script>
