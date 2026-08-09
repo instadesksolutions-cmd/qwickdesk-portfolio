@@ -9,6 +9,26 @@
     <meta name="theme-color" content="#0f172a">
     
     <link rel="icon" href="favicon.png" type="image/png">
+
+    <!-- 🚨 Tailwind CSS CDN & Config Added Here 🚨 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#4060eb',
+                            light: '#6889f3',
+                            dark: '#1b2581'
+                        },
+                        secondary: '#f59e0b',
+                    }
+                }
+            }
+        }
+    </script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -17,9 +37,11 @@
     <!-- Navigation Bar -->
     <nav class="navbar sticky top-0 z-50 bg-white/90 backdrop-blur-lg border-b border-slate-200 transition-all duration-300">
         <div class="container mx-auto px-5 h-20 flex justify-between items-center max-w-7xl">
-            <!-- Custom Logo -->
+            <!-- Text/Icon Logo (No Image) -->
             <a href="index.html" class="logo flex items-center gap-2 text-2xl font-black text-primary-dark">
-                <img src="logo.png" alt="QwickDesk Logo" class="h-10 w-auto object-contain">
+                <div class="w-10 h-10 bg-primary-dark text-white rounded-xl flex items-center justify-center shadow-lg text-lg">
+                    <i class="fas fa-bolt"></i>
+                </div>
                 QwickDesk<span class="text-secondary">.</span>
             </a>
 
@@ -258,8 +280,9 @@
         <div class="container mx-auto px-5 max-w-7xl">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
                 <div>
+                    <!-- Text/Icon Logo (No Image) -->
                     <a href="index.html" class="flex items-center gap-2 text-2xl font-black text-white mb-4">
-                        <img src="logo.png" alt="QwickDesk Logo" class="h-8 w-auto object-contain"> QwickDesk.
+                        <i class="fas fa-bolt text-secondary"></i> QwickDesk.
                     </a>
                     <p class="text-sm text-slate-400 mb-6 max-w-xs">Transforming local businesses into digital powerhouses with premium web architecture.</p>
                 </div>
