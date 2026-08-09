@@ -12,7 +12,7 @@
     <!-- Favicon -->
     <link rel="icon" href="favicon.png" type="image/png">
     
-    <!-- 🚨 THE FIX: Tailwind CSS CDN Added Here 🚨 -->
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -46,12 +46,11 @@
 
     <!-- Navigation Bar -->
     <nav class="navbar sticky top-0 z-50 bg-white/90 backdrop-blur-lg border-b border-slate-200 transition-all duration-300">
-        <div class="container mx-auto px-5 h-20 flex justify-between items-center max-w-7xl">
+        <div class="container mx-auto px-4 h-20 flex justify-between items-center max-w-7xl">
             
             <!-- Custom Logo (Fixed Size) -->
-            <a href="index.html" class="logo flex items-center gap-2 text-2xl font-black text-primary-dark">
-                <!-- Added style="max-height: 40px;" for safety -->
-                <img src="logo.png" alt="QwickDesk Logo" class="h-10 w-auto object-contain" style="max-height: 40px;">
+            <a href="index.html" class="logo flex items-center gap-2 text-xl sm:text-2xl font-black text-primary-dark">
+                <img src="logo.png" alt="QwickDesk Logo" class="h-8 sm:h-10 w-auto object-contain" style="max-height: 40px;">
                 QwickDesk<span class="text-secondary">.</span>
             </a>
 
@@ -64,19 +63,19 @@
                 <a href="contact.html" class="hover:text-primary transition">Contact</a>
             </div>
 
-            <!-- Nav Actions & Portal Login -->
-            <div class="nav-actions flex items-center gap-4">
+            <!-- Nav Actions & Portal Login (Optimized for Mobile Visibility) -->
+            <div class="nav-actions flex items-center gap-2 sm:gap-3">
                 <!-- Client Portal Button -->
-                <button onclick="openLoginModal()" class="btn-portal hidden sm:flex items-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-800 px-5 py-2.5 rounded-full font-bold text-sm transition border border-slate-300 shadow-sm">
-                    <i class="fas fa-user-circle text-primary"></i> Client Portal
+                <button onclick="openLoginModal()" class="btn-portal flex items-center gap-1.5 bg-slate-100 hover:bg-slate-200 text-slate-800 px-3 sm:px-4 py-2 rounded-full font-bold text-xs sm:text-sm transition border border-slate-300 shadow-sm">
+                    <i class="fas fa-user-circle text-primary text-sm sm:text-base"></i> <span class="hidden xs:inline">Portal</span>
                 </button>
                 
-                <a href="contact.html" class="btn-primary bg-primary hover:bg-primary-dark text-white px-6 py-2.5 rounded-full font-bold text-sm transition shadow-lg shadow-primary/30 hidden md:block">
-                    Start Project
+                <a href="contact.html" class="btn-primary bg-primary hover:bg-primary-dark text-white px-4 sm:px-5 py-2 rounded-full font-bold text-xs sm:text-sm transition shadow-md shadow-primary/30">
+                    Start
                 </a>
 
                 <!-- Mobile Hamburger -->
-                <button class="hamburger lg:hidden text-2xl text-primary-dark focus:outline-none" aria-label="Toggle Menu">
+                <button class="hamburger lg:hidden text-xl text-primary-dark focus:outline-none ml-1" aria-label="Toggle Menu">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
@@ -225,7 +224,6 @@
 
     <!-- Why Digital / Stats Section -->
     <section class="knowledge-section py-20 lg:py-32 bg-primary-dark text-white relative overflow-hidden">
-        <div class="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
         <div class="container mx-auto px-5 max-w-7xl relative z-10">
             <div class="text-center mb-16 reveal-fade-up">
                 <h2 class="text-3xl md:text-5xl font-black mb-4">Why Your Business Needs Us</h2>
