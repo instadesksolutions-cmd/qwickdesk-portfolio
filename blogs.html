@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Insights & Case Studies | QwickDesk Solutions</title>
+    
+    <meta name="description" content="Read the latest insights, strategies, and case studies on local business scaling, web development, and local SEO from QwickDesk Solutions.">
+    <meta name="theme-color" content="#0f172a">
+    
+    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="overflow-x-hidden antialiased bg-slate-50 text-slate-800">
+
+    <!-- Navigation Bar -->
+    <nav class="navbar sticky top-0 z-50 bg-white/90 backdrop-blur-lg border-b border-slate-200 transition-all duration-300">
+        <div class="container mx-auto px-5 h-20 flex justify-between items-center max-w-7xl">
+            <!-- Custom Logo -->
+            <a href="index.html" class="logo flex items-center gap-2 text-2xl font-black text-primary-dark">
+                <img src="logo.png" alt="QwickDesk Logo" class="h-10 w-auto object-contain">
+                QwickDesk<span class="text-secondary">.</span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="nav-menu hidden lg:flex items-center gap-8 font-semibold text-slate-600 text-sm">
+                <a href="index.html" class="hover:text-primary transition">Home</a>
+                <a href="services.html" class="hover:text-primary transition">Our Expertise</a>
+                <a href="pricing.html" class="hover:text-primary transition">Pricing</a>
+                <a href="blogs.html" class="active text-primary hover:text-primary-dark transition">Insights</a>
+                <a href="contact.html" class="hover:text-primary transition">Contact</a>
+            </div>
+
+            <!-- Nav Actions -->
+            <div class="nav-actions flex items-center gap-4">
+                <button onclick="openLoginModal()" class="btn-portal hidden sm:flex items-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-800 px-5 py-2.5 rounded-full font-bold text-sm transition border border-slate-300 shadow-sm">
+                    <i class="fas fa-user-circle text-primary"></i> Client Portal
+                </button>
+                <a href="contact.html" class="btn-primary bg-primary hover:bg-primary-dark text-white px-6 py-2.5 rounded-full font-bold text-sm transition shadow-lg shadow-primary/30 hidden md:block">
+                    Start Project
+                </a>
+                <button class="hamburger lg:hidden text-2xl text-primary-dark focus:outline-none" aria-label="Toggle Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay fixed inset-0 bg-primary-dark/95 backdrop-blur-md z-40 hidden flex-col items-center justify-center gap-6 text-white text-xl font-bold">
+        <a href="index.html">Home</a>
+        <a href="services.html">Our Expertise</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="blogs.html">Insights</a>
+        <a href="contact.html">Contact</a>
+        <button onclick="openLoginModal()" class="mt-4 bg-secondary text-white px-8 py-3 rounded-full shadow-lg">
+            <i class="fas fa-lock"></i> Client Portal Login
+        </button>
+    </div>
+
+    <!-- Client Portal Login Popup Modal -->
+    <div id="loginModal" class="modal-overlay fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-[100] hidden items-center justify-center p-4 opacity-0 transition-opacity duration-300">
+        <div class="modal-card bg-white w-full max-w-md rounded-3xl shadow-2xl overflow-hidden transform scale-95 transition-transform duration-300 relative">
+            <div class="bg-primary-dark p-6 text-center relative">
+                <button onclick="closeLoginModal()" class="absolute top-4 right-4 text-white/70 hover:text-white text-xl transition">
+                    <i class="fas fa-times-circle"></i>
+                </button>
+                <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-3 border border-white/20">
+                    <i class="fas fa-shield-alt text-2xl text-secondary"></i>
+                </div>
+                <h3 class="text-2xl font-black text-white">Secure Workspace</h3>
+                <p class="text-slate-300 text-sm mt-1">Access your live project tracker and invoices.</p>
+            </div>
+            <div class="p-8 text-center bg-slate-50">
+                <p class="text-slate-600 font-medium mb-6 text-sm">
+                    You are being redirected to our secure enterprise subdomain to access your dashboard.
+                </p>
+                <div class="bg-white border border-slate-200 p-4 rounded-xl mb-6 shadow-sm flex items-center justify-center gap-3">
+                    <i class="fas fa-link text-slate-400"></i>
+                    <span class="text-primary font-bold font-mono text-sm tracking-tight break-all">web.qwickdesksolutions.co.in</span>
+                </div>
+                <div class="flex flex-col gap-3">
+                    <a href="https://web.qwickdesksolutions.co.in/login.html" class="bg-primary hover:bg-primary-dark text-white font-bold py-3.5 rounded-xl shadow-lg transition flex items-center justify-center gap-2 w-full">
+                        Continue to Login <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <button onclick="closeLoginModal()" class="text-slate-500 hover:text-slate-800 font-bold py-3 text-sm transition">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Blogs Hero Section -->
+    <header class="relative pt-20 pb-16 lg:pt-28 lg:pb-24 bg-primary-dark text-white text-center overflow-hidden">
+        <!-- Abstract Background Elements -->
+        <div class="absolute inset-0 opacity-20 pointer-events-none">
+            <div class="absolute top-0 right-0 w-80 h-80 bg-primary rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2"></div>
+            <div class="absolute bottom-0 left-0 w-80 h-80 bg-secondary rounded-full blur-[80px] translate-y-1/2 -translate-x-1/2"></div>
+        </div>
+        
+        <div class="container mx-auto px-5 max-w-4xl relative z-10 reveal-fade-up">
+            <span class="inline-block py-1 px-3 rounded-full bg-white/10 border border-white/20 text-secondary text-xs font-bold tracking-widest uppercase mb-4">
+                Resources & Growth
+            </span>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black mb-6 tracking-tight">Agency <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Insights.</span></h1>
+            <p class="text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto">
+                Discover actionable strategies, deep-dive case studies, and technical breakdowns on how to scale your local business online.
+            </p>
+        </div>
+    </header>
+
+    <!-- Featured Case Study -->
+    <section class="py-16 bg-slate-50">
+        <div class="container mx-auto px-5 max-w-7xl">
+            <div class="bg-white rounded-[2rem] shadow-xl border border-slate-200 overflow-hidden flex flex-col lg:flex-row reveal-fade-up">
+                <div class="w-full lg:w-1/2 relative min-h-[300px] lg:min-h-full">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2000&auto=format&fit=crop" alt="Case Study" class="absolute inset-0 w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-r from-primary-dark/80 to-transparent"></div>
+                    <div class="absolute top-6 left-6 bg-secondary text-white text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full shadow-md">
+                        Featured Case Study
+                    </div>
+                </div>
+                <div class="w-full lg:w-1/2 p-8 lg:p-12 flex flex-col justify-center">
+                    <div class="flex items-center gap-3 text-sm text-slate-500 font-bold mb-4">
+                        <span><i class="far fa-calendar-alt"></i> Aug 09, 2026</span>
+                        <span class="w-1 h-1 rounded-full bg-slate-300"></span>
+                        <span><i class="far fa-clock"></i> 8 Min Read</span>
+                    </div>
+                    <h2 class="text-3xl font-black text-primary-dark mb-4 leading-tight">
+                        How We Scaled a Local Clinic's Lead Generation by 340% in 45 Days.
+                    </h2>
+                    <p class="text-slate-600 mb-8 leading-relaxed">
+                        Learn the exact UI changes, speed optimizations, and WhatsApp lead capture systems we implemented to turn a failing template website into a high-ticket patient acquisition engine.
+                    </p>
+                    <a href="#" class="inline-flex items-center gap-2 text-primary font-bold hover:text-primary-dark transition w-fit group">
+                        Read Full Case Study <i class="fas fa-arrow-right transform group-hover:translate-x-1 transition"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Articles Grid -->
+    <section class="py-16 bg-slate-50 border-t border-slate-200">
+        <div class="container mx-auto px-5 max-w-7xl">
+            <div class="flex justify-between items-end mb-10 reveal-fade-up">
+                <div>
+                    <h2 class="text-3xl font-black text-primary-dark">Latest Articles</h2>
+                    <p class="text-slate-600 mt-2">Tips and strategies to grow your digital presence.</p>
+                </div>
+                <!-- Category Filter (Visual Only) -->
+                <div class="hidden md:flex gap-2">
+                    <button class="px-4 py-2 rounded-full bg-primary text-white text-sm font-bold shadow-md">All</button>
+                    <button class="px-4 py-2 rounded-full bg-white text-slate-600 border border-slate-200 hover:bg-slate-100 text-sm font-bold transition">SEO</button>
+                    <button class="px-4 py-2 rounded-full bg-white text-slate-600 border border-slate-200 hover:bg-slate-100 text-sm font-bold transition">UI/UX</button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Article 1 -->
+                <article class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-shadow duration-300 group reveal-fade-up">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop" alt="Blog Image" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500">
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-primary-dark text-xs font-bold uppercase px-3 py-1 rounded-full">
+                            Local SEO
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-black text-primary-dark mb-3 leading-snug group-hover:text-primary transition">
+                            Why Google My Business is More Important Than Your Social Media.
+                        </h3>
+                        <p class="text-slate-600 text-sm mb-6 line-clamp-3">
+                            Many local shop owners spend hours making Instagram reels while ignoring the platform where customers actually search with "buyer intent". Here is how to fix it.
+                        </p>
+                        <div class="flex justify-between items-center border-t border-slate-100 pt-4">
+                            <span class="text-xs text-slate-400 font-bold"><i class="far fa-calendar"></i> Aug 05, 2026</span>
+                            <a href="#" class="text-sm font-bold text-secondary hover:text-primary transition">Read More &rarr;</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 2 -->
+                <article class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-shadow duration-300 group reveal-fade-up delay-100">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop" alt="Blog Image" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500">
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-primary-dark text-xs font-bold uppercase px-3 py-1 rounded-full">
+                            Tech & Speed
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-black text-primary-dark mb-3 leading-snug group-hover:text-primary transition">
+                            The 3-Second Rule: How Website Speed Impacts Your Bounce Rate.
+                        </h3>
+                        <p class="text-slate-600 text-sm mb-6 line-clamp-3">
+                            A deep dive into Core Web Vitals. We explain why WordPress templates often fail Google's speed tests and how custom architecture solves this problem instantly.
+                        </p>
+                        <div class="flex justify-between items-center border-t border-slate-100 pt-4">
+                            <span class="text-xs text-slate-400 font-bold"><i class="far fa-calendar"></i> Jul 28, 2026</span>
+                            <a href="#" class="text-sm font-bold text-secondary hover:text-primary transition">Read More &rarr;</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 3 -->
+                <article class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-shadow duration-300 group reveal-fade-up delay-200">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=800&auto=format&fit=crop" alt="Blog Image" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500">
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-primary-dark text-xs font-bold uppercase px-3 py-1 rounded-full">
+                            UI / UX Design
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-black text-primary-dark mb-3 leading-snug group-hover:text-primary transition">
+                            Color Psychology in Web Design: Boosting Conversions.
+                        </h3>
+                        <p class="text-slate-600 text-sm mb-6 line-clamp-3">
+                            Why do most financial apps use blue? Why are "Buy Now" buttons often green or orange? Discover the science behind visual choices that trigger customer trust.
+                        </p>
+                        <div class="flex justify-between items-center border-t border-slate-100 pt-4">
+                            <span class="text-xs text-slate-400 font-bold"><i class="far fa-calendar"></i> Jul 15, 2026</span>
+                            <a href="#" class="text-sm font-bold text-secondary hover:text-primary transition">Read More &rarr;</a>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+            
+            <div class="text-center mt-12">
+                <button class="bg-white border-2 border-slate-200 text-primary-dark hover:bg-slate-50 px-8 py-3 rounded-full font-bold transition shadow-sm">
+                    Load More Articles
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Banner -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-5 max-w-5xl">
+            <div class="bg-gradient-to-br from-primary-dark to-primary rounded-[2rem] p-10 text-center text-white shadow-2xl relative overflow-hidden reveal-zoom-in">
+                <div class="absolute top-0 left-0 w-64 h-64 border-4 border-white/10 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+                <div class="absolute bottom-0 right-0 w-64 h-64 border-4 border-white/10 rounded-full translate-x-1/3 translate-y-1/3"></div>
+                
+                <h2 class="text-3xl md:text-4xl font-black mb-4 relative z-10">Stop Reading. Start Scaling.</h2>
+                <p class="text-slate-200 mb-8 max-w-xl mx-auto relative z-10">Implement these strategies today. Partner with QwickDesk to build a high-performance digital asset for your business.</p>
+                
+                <div class="flex flex-col sm:flex-row justify-center gap-4 relative z-10">
+                    <a href="pricing.html" class="bg-white text-primary-dark hover:bg-slate-50 px-8 py-3.5 rounded-full font-bold transition shadow-lg">
+                        View Packages
+                    </a>
+                    <a href="contact.html" class="bg-transparent border-2 border-white text-white hover:bg-white/10 px-8 py-3.5 rounded-full font-bold transition">
+                        Contact Agency
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/919920048859" target="_blank" class="fixed bottom-6 right-6 bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-2xl hover:scale-110 transition-transform z-50 animate-bounce-slow" aria-label="WhatsApp Us">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-300 py-16 border-t border-slate-800">
+        <div class="container mx-auto px-5 max-w-7xl">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
+                <div>
+                    <a href="index.html" class="flex items-center gap-2 text-2xl font-black text-white mb-4">
+                        <img src="logo.png" alt="QwickDesk Logo" class="h-8 w-auto object-contain"> QwickDesk.
+                    </a>
+                    <p class="text-sm text-slate-400 mb-6 max-w-xs">Transforming local businesses into digital powerhouses with premium web architecture.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary hover:text-white transition"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary hover:text-white transition"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Quick Links</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="services.html" class="hover:text-secondary transition">Our Expertise</a></li>
+                        <li><a href="pricing.html" class="hover:text-secondary transition">Pricing Plans</a></li>
+                        <li><a href="blogs.html" class="text-secondary transition">Latest Insights</a></li>
+                        <li><a href="contact.html" class="hover:text-secondary transition">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Get in Touch</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-phone-alt text-secondary"></i>
+                            <a href="tel:+919920048859" class="hover:text-white transition">+91 99200 48859</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-envelope text-secondary"></i>
+                            <a href="mailto:qwickdesksolutions@outlook.com" class="hover:text-white transition">qwickdesksolutions@outlook.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 pt-8 text-center text-xs">
+                <p>&copy; 2026 QwickDesk Solutions. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal Scripts -->
+    <script>
+        function openLoginModal() {
+            const modal = document.getElementById('loginModal');
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modal.querySelector('.modal-card').classList.remove('scale-95');
+            }, 10);
+        }
+
+        function closeLoginModal() {
+            const modal = document.getElementById('loginModal');
+            modal.classList.add('opacity-0');
+            modal.querySelector('.modal-card').classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        document.getElementById('loginModal').addEventListener('click', function(e) {
+            if (e.target === this) closeLoginModal();
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
