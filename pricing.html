@@ -2,239 +2,358 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pricing & Secure Checkout | QwickDesk Solutions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Pricing & Packages | QwickDesk Solutions</title>
+    
+    <meta name="description" content="Transparent pricing for high-end web development. Choose a package tailored for your business growth.">
+    <meta name="theme-color" content="#0f172a">
+    
+    <link rel="icon" href="favicon.png" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <style>
-        .header-bg { text-align: center; padding: 120px 5% 40px; }
-        
-        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; max-width: 1250px; margin: 0 auto 80px; padding: 0 5%; align-items: center; }
-        
-        .price-card { background: white; padding: 50px 40px; border-radius: 30px; text-align: center; border: 1px solid #e2e8f0; box-shadow: var(--shadow-sm); position: relative; transition: var(--transition); display: flex; flex-direction: column; height: 100%; }
-        
-        .price-card.popular { transform: scale(1.05); border: 2px solid var(--primary-light); box-shadow: 0 25px 50px rgba(37, 99, 235, 0.15); z-index: 10; }
-        .price-card.popular:hover { transform: scale(1.05) translateY(-10px); }
-        
-        .badge { position: absolute; top: -18px; left: 50%; transform: translateX(-50%); background: var(--accent); color: white; padding: 8px 24px; border-radius: 30px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem; box-shadow: 0 5px 15px rgba(244, 63, 94, 0.4); }
-        
-        .price-card h3 { font-size: 1.8rem; color: var(--dark); margin-bottom: 25px; }
-        .price { font-size: 4.5rem; font-weight: 800; color: var(--primary); margin-bottom: 30px; line-height: 1; display: flex; justify-content: center; align-items: flex-start; }
-        .price span { font-size: 2rem; margin-top: 10px; margin-right: 5px; }
-
-        .features { text-align: left; margin-bottom: 40px; flex-grow: 1; }
-        .features li { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; font-size: 1.05rem; font-weight: 600; color: var(--text-main); }
-        .features li i { color: var(--secondary); font-size: 1.3rem; }
-
-        /* Secure Payment Modal / Section Styling */
-        .payment-modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); backdrop-filter: blur(5px); z-index: 2000; justify-content: center; align-items: center; padding: 20px; }
-        .payment-modal-overlay.active { display: flex; }
-        .payment-card { background: #ffffff; color: #1e293b; width: 100%; max-width: 480px; padding: 35px; border-radius: 24px; box-shadow: 0 25px 50px rgba(0,0,0,0.3); position: relative; text-align: left; max-height: 90vh; overflow-y: auto; }
-        .close-modal { position: absolute; top: 20px; right: 20px; font-size: 1.3rem; color: #64748b; cursor: pointer; border: none; background: none; }
-        
-        .upi-box { background: #f8fafc; border: 2px dashed #cbd5e1; border-radius: 16px; padding: 20px; text-align: center; margin-bottom: 20px; }
-        .form-group-pay { margin-bottom: 15px; }
-        .form-group-pay label { display: block; font-size: 0.85rem; font-weight: 700; color: #475569; margin-bottom: 6px; }
-        .form-group-pay input { width: 100%; padding: 12px 15px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.95rem; outline: none; }
-        .form-group-pay input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(37,99,235,0.1); }
-
-        @media (max-width: 991px) {
-            .pricing-grid { gap: 50px; }
-            .price-card.popular { transform: scale(1); }
-            .price-card.popular:hover { transform: translateY(-5px); }
-        }
-    </style>
 </head>
-<body>
+<body class="overflow-x-hidden antialiased bg-slate-50 text-slate-800">
 
-    <nav class="navbar">
-        <div class="logo">QwickDesk<span>.</span></div>
-        <div class="nav-menu">
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="services.html">Our Expertise</a></li>
-                <li><a href="pricing.html" class="active">Pricing</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-            <div class="nav-actions">
-                <a href="pricing.html" class="btn btn-primary">Packages</a>
-                <div class="hamburger"><i class="fas fa-bars"></i></div>
+    <!-- Navigation Bar -->
+    <nav class="navbar sticky top-0 z-50 bg-white/90 backdrop-blur-lg border-b border-slate-200 transition-all duration-300">
+        <div class="container mx-auto px-5 h-20 flex justify-between items-center max-w-7xl">
+            <!-- Custom Logo -->
+            <a href="index.html" class="logo flex items-center gap-2 text-2xl font-black text-primary-dark">
+                <img src="logo.png" alt="QwickDesk Logo" class="h-10 w-auto object-contain">
+                QwickDesk<span class="text-secondary">.</span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="nav-menu hidden lg:flex items-center gap-8 font-semibold text-slate-600 text-sm">
+                <a href="index.html" class="hover:text-primary transition">Home</a>
+                <a href="services.html" class="hover:text-primary transition">Our Expertise</a>
+                <a href="pricing.html" class="active text-primary hover:text-primary-dark transition">Pricing</a>
+                <a href="blogs.html" class="hover:text-primary transition">Insights</a>
+                <a href="contact.html" class="hover:text-primary transition">Contact</a>
+            </div>
+
+            <!-- Nav Actions -->
+            <div class="nav-actions flex items-center gap-4">
+                <button onclick="openLoginModal()" class="btn-portal hidden sm:flex items-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-800 px-5 py-2.5 rounded-full font-bold text-sm transition border border-slate-300 shadow-sm">
+                    <i class="fas fa-user-circle text-primary"></i> Client Portal
+                </button>
+                <a href="contact.html" class="btn-primary bg-primary hover:bg-primary-dark text-white px-6 py-2.5 rounded-full font-bold text-sm transition shadow-lg shadow-primary/30 hidden md:block">
+                    Start Project
+                </a>
+                <button class="hamburger lg:hidden text-2xl text-primary-dark focus:outline-none" aria-label="Toggle Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
         </div>
     </nav>
 
-    <header class="header-bg reveal">
-        <h1 class="text-gradient">Transparent Investment</h1>
-        <p style="font-size: 1.2rem; color: var(--text-muted); margin-top:10px;">High-value assets at costs designed for growing businesses.</p>
-    </header>
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay fixed inset-0 bg-primary-dark/95 backdrop-blur-md z-40 hidden flex-col items-center justify-center gap-6 text-white text-xl font-bold">
+        <a href="index.html">Home</a>
+        <a href="services.html">Our Expertise</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="blogs.html">Insights</a>
+        <a href="contact.html">Contact</a>
+        <button onclick="openLoginModal()" class="mt-4 bg-secondary text-white px-8 py-3 rounded-full shadow-lg">
+            <i class="fas fa-lock"></i> Client Portal Login
+        </button>
+    </div>
 
-    <section class="pricing-grid">
-        <div class="price-card reveal delay-1">
-            <h3>Starter</h3>
-            <div class="price"><span>₹</span>699</div>
-            <ul class="features">
-                <li><i class="fas fa-check-circle"></i> 1 Page Landing Site</li>
-                <li><i class="fas fa-check-circle"></i> Mobile Auto-Adjust</li>
-                <li><i class="fas fa-check-circle"></i> WhatsApp Floating Button</li>
-                <li><i class="fas fa-check-circle"></i> Basic Speed Setup</li>
-            </ul>
-            <button type="button" onclick="openCheckout('Starter', '699')" class="btn btn-outline" style="width: 100%;">Choose Starter</button>
-        </div>
-
-        <div class="price-card popular reveal">
-            <div class="badge">Most Popular</div>
-            <h3>Growth</h3>
-            <div class="price"><span>₹</span>999</div>
-            <ul class="features">
-                <li><i class="fas fa-check-circle"></i> Multi-Page Structure</li>
-                <li><i class="fas fa-check-circle"></i> Lead Generation Form</li>
-                <li><i class="fas fa-check-circle"></i> Google Maps Setup</li>
-                <li><i class="fas fa-check-circle"></i> Advanced Animations</li>
-            </ul>
-            <button type="button" onclick="openCheckout('Growth', '999')" class="btn btn-primary" style="width: 100%; padding: 18px;">Choose Growth</button>
-        </div>
-
-        <div class="price-card reveal delay-2">
-            <h3>Pro</h3>
-            <div class="price"><span>₹</span>1,499</div>
-            <ul class="features">
-                <li><i class="fas fa-check-circle"></i> Premium Graphic UI</li>
-                <li><i class="fas fa-check-circle"></i> Local SEO Tags Setup</li>
-                <li><i class="fas fa-check-circle"></i> Glassmorphism FX</li>
-                <li><i class="fas fa-check-circle"></i> Priority Delivery</li>
-            </ul>
-            <button type="button" onclick="openCheckout('Pro', '1499')" class="btn btn-outline" style="width: 100%;">Choose Pro</button>
-        </div>
-    </section>
-
-    <div id="paymentModal" class="payment-modal-overlay">
-        <div class="payment-card">
-            <button type="button" class="close-modal" onclick="closeCheckout()"><i class="fas fa-times"></i></button>
-            <div style="text-align: center; margin-bottom: 20px;">
-                <h3 style="font-size: 1.5rem; color: #0f172a; margin-bottom: 5px;">Secure UPI Checkout</h3>
-                <p id="selectedPlanText" style="font-size: 0.9rem; color: #64748b; font-weight: 600;">Selected Plan: Growth (₹999)</p>
-            </div>
-
-            <div class="upi-box">
-                <p style="font-size: 0.85rem; font-weight: 700; color: #334155; margin-bottom: 10px;"><i class="fas fa-qrcode"></i> Scan QR or Click Button to Pay</p>
-                <div style="background: white; padding: 10px; display: inline-block; border-radius: 8px; margin-bottom: 10px; border: 1px solid #e2e8f0;">
-                    <img src="scanner.png" alt="UPI QR Code" style="width: 160px; height: 160px; display: block;">
-                </div>
-                <div style="font-size: 0.85rem; color: #475569; margin-bottom: 12px; font-weight: 600;">
-                    UPI ID: <span id="upiIdText" style="color: #0f172a; user-select: all;">shjadhav112-3@okaxis</span>
-                    <button type="button" onclick="copyUpiId()" style="background:none; border:none; color:var(--primary); cursor:pointer; margin-left: 5px; font-weight:bold;"><i class="fas fa-copy"></i></button>
-                </div>
-
-                <a id="upiIntentBtn" href="#" class="btn btn-primary" style="display: flex; align-items: center; justify-content: center; gap: 6px; width: 100%; padding: 12px 8px; background: #00c853; color: white; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 0.82rem; text-align: center;">
-                    <i class="fas fa-mobile-screen-button" style="font-size: 0.9rem;"></i> Pay via UPI App (GPay / PhonePe)
-                </a>
-            </div>
-
-            <form id="utrForm" onsubmit="submitUtrForm(event)">
-                <div class="form-group-pay">
-                    <label for="clientName">Business / Full Name *</label>
-                    <input type="text" id="clientName" placeholder="E.g. Sharma Enterprise" required>
-                </div>
-                <div class="form-group-pay">
-                    <label for="clientPhone">WhatsApp Number *</label>
-                    <input type="tel" id="clientPhone" placeholder="+91" required>
-                </div>
-                <div class="form-group-pay">
-                    <label for="clientUtr">UTR / UPI Reference Number (12 Digits) *</label>
-                    <input type="text" id="clientUtr" placeholder="Enter transaction reference ID" required>
-                </div>
-                <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; padding: 14px; margin-top: 10px;">
-                    <i class="fab fa-whatsapp"></i> Confirm & Send Details
+    <!-- Client Portal Login Popup Modal -->
+    <div id="loginModal" class="modal-overlay fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-[100] hidden items-center justify-center p-4 opacity-0 transition-opacity duration-300">
+        <div class="modal-card bg-white w-full max-w-md rounded-3xl shadow-2xl overflow-hidden transform scale-95 transition-transform duration-300 relative">
+            <div class="bg-primary-dark p-6 text-center relative">
+                <button onclick="closeLoginModal()" class="absolute top-4 right-4 text-white/70 hover:text-white text-xl transition">
+                    <i class="fas fa-times-circle"></i>
                 </button>
-            </form>
+                <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-3 border border-white/20">
+                    <i class="fas fa-shield-alt text-2xl text-secondary"></i>
+                </div>
+                <h3 class="text-2xl font-black text-white">Secure Workspace</h3>
+                <p class="text-slate-300 text-sm mt-1">Access your live project tracker and checkout portal.</p>
+            </div>
+            <div class="p-8 text-center bg-slate-50">
+                <p class="text-slate-600 font-medium mb-6 text-sm">
+                    You are being redirected to our secure enterprise subdomain to select your plan and process checkout.
+                </p>
+                <div class="bg-white border border-slate-200 p-4 rounded-xl mb-6 shadow-sm flex items-center justify-center gap-3">
+                    <i class="fas fa-link text-slate-400"></i>
+                    <span class="text-primary font-bold font-mono text-sm tracking-tight break-all">web.qwickdesksolutions.co.in</span>
+                </div>
+                <div class="flex flex-col gap-3">
+                    <a href="https://web.qwickdesksolutions.co.in/login.html" class="bg-primary hover:bg-primary-dark text-white font-bold py-3.5 rounded-xl shadow-lg transition flex items-center justify-center gap-2 w-full">
+                        Continue to Portal <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <button onclick="closeLoginModal()" class="text-slate-500 hover:text-slate-800 font-bold py-3 text-sm transition">
+                        Cancel
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 
-    <a href="https://wa.me/917249828812" class="floating-wa" target="_blank"><i class="fab fa-whatsapp"></i></a>
-    <footer><p>&copy; 2026 QwickDesk Solutions.</p></footer>
-    
-    <script src="script.js"></script>
-    <script>
-        let currentPlanName = "Growth";
-        let currentPlanPrice = "999";
+    <!-- Pricing Hero -->
+    <header class="pt-24 pb-16 lg:pt-32 lg:pb-24 bg-primary-dark text-white text-center relative overflow-hidden">
+        <!-- Abstract Background -->
+        <div class="absolute inset-0 opacity-20">
+            <div class="absolute top-0 right-0 w-96 h-96 bg-primary rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3"></div>
+        </div>
+        
+        <div class="container mx-auto px-5 max-w-4xl relative z-10 reveal-fade-up">
+            <span class="text-secondary font-bold tracking-widest uppercase text-sm mb-4 block">Clear & Transparent</span>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black mb-6 tracking-tight">Investment Plans</h1>
+            <p class="text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto">
+                High-value digital assets at costs designed for growing businesses. Select a plan below and enter our secure portal to checkout.
+            </p>
+        </div>
+    </header>
 
-        function openCheckout(planName, planPrice) {
-            currentPlanName = planName;
-            currentPlanPrice = planPrice;
-            
-            const planTextEl = document.getElementById('selectedPlanText');
-            if (planTextEl) {
-                planTextEl.innerText = `Selected Plan: ${planName} (₹${planPrice})`;
-            }
-            
-            // Generate UPI Intent Link dynamically based on price
-            const upiID = "shjadhav112-3@okaxis";
-            const payeeName = "QwickDesk Solutions";
-            const transactionNote = `Payment for ${planName} Plan - QwickDesk`;
-            
-            const upiIntentUrl = `upi://pay?pa=${encodeURIComponent(upiID)}&pn=${encodeURIComponent(payeeName)}&am=${encodeURIComponent(planPrice + '.00')}&cu=INR&tn=${encodeURIComponent(transactionNote)}`;
-            
-            const upiIntentBtn = document.getElementById('upiIntentBtn');
-            if (upiIntentBtn) {
-                upiIntentBtn.setAttribute('href', upiIntentUrl);
-            }
-            
-            const paymentModal = document.getElementById('paymentModal');
-            if (paymentModal) {
-                paymentModal.classList.add('active');
-            }
-        }
-
-        function closeCheckout() {
-            const paymentModal = document.getElementById('paymentModal');
-            if (paymentModal) {
-                paymentModal.classList.remove('active');
-            }
-        }
-
-        function copyUpiId() {
-            const upiIdText = document.getElementById('upiIdText');
-            if (upiIdText) {
-                const upiText = upiIdText.innerText;
-                navigator.clipboard.writeText(upiText).then(() => {
-                    alert('UPI ID copied to clipboard: ' + upiText);
-                });
-            }
-        }
-
-        function submitUtrForm(e) {
-            e.preventDefault();
-            const nameEl = document.getElementById('clientName');
-            const phoneEl = document.getElementById('clientPhone');
-            const utrEl = document.getElementById('clientUtr');
-
-            if (nameEl && phoneEl && utrEl) {
-                const name = nameEl.value;
-                const phone = phoneEl.value;
-                const utr = utrEl.value;
-
-                let waText = `*New Paid Order Received!* 💰\n\n`;
-                waText += `*Plan:* ${currentPlanName} (₹${currentPlanPrice})\n`;
-                waText += `*Name:* ${name}\n`;
-                waText += `*Phone:* ${phone}\n`;
-                waText += `*UTR / Ref No:* ${utr}\n\n`;
-                waText += `Please verify and initiate my project development.`;
-
-                const adminWhatsApp = "917249828812";
-                const waLink = `https://wa.me/${adminWhatsApp}?text=${encodeURIComponent(waText)}`;
+    <!-- Pricing Grid Section -->
+    <section class="py-20 bg-slate-50 -mt-10">
+        <div class="container mx-auto px-5 max-w-7xl">
+            <div class="grid md:grid-cols-3 gap-8 items-stretch">
                 
-                window.open(waLink, '_blank');
-                closeCheckout();
-            }
+                <!-- Starter Plan -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 flex flex-col justify-between hover:shadow-xl transition duration-300 reveal-fade-up z-10 relative mt-4 md:mt-10">
+                    <div>
+                        <h3 class="text-2xl font-black text-primary-dark mb-1">Starter</h3>
+                        <p class="text-slate-500 text-xs uppercase tracking-wider font-bold mb-6">Perfect for small start</p>
+                        <div class="flex items-baseline mb-6">
+                            <span class="text-4xl md:text-5xl font-black text-primary-dark">₹999</span>
+                            <span class="text-slate-400 ml-2 text-sm font-medium">/one-time</span>
+                        </div>
+                        <ul class="space-y-4 mb-8 text-slate-700 text-sm font-medium">
+                            <li class="flex items-center gap-3"><i class="fas fa-check-circle text-emerald-600 text-lg shrink-0"></i> 1 Page Landing Site</li>
+                            <li class="flex items-center gap-3"><i class="fas fa-check-circle text-emerald-600 text-lg shrink-0"></i> Mobile Auto-Adjust</li>
+                            <li class="flex items-center gap-3"><i class="fas fa-check-circle text-emerald-600 text-lg shrink-0"></i> WhatsApp Floating Button</li>
+                            <li class="flex items-center gap-3"><i class="fas fa-check-circle text-emerald-600 text-lg shrink-0"></i> Basic Speed Setup</li>
+                            <li class="flex items-center gap-3 text-slate-400"><i class="fas fa-times-circle text-slate-300 text-lg shrink-0"></i> No Advanced SEO</li>
+                        </ul>
+                    </div>
+                    <!-- Triggers Client Portal Modal -->
+                    <button onclick="openLoginModal()" class="w-full bg-slate-100 hover:bg-primary hover:text-white text-primary-dark font-bold py-4 rounded-xl transition text-sm">
+                        Choose Starter
+                    </button>
+                </div>
+
+                <!-- Growth Plan (Most Popular) -->
+                <div class="bg-primary-dark text-white p-8 rounded-3xl shadow-2xl border-2 border-secondary flex flex-col justify-between transform md:-translate-y-4 relative z-20 reveal-fade-up delay-100">
+                    <div class="absolute -top-4 inset-x-0 flex justify-center">
+                        <span class="bg-secondary text-white text-xs font-bold uppercase tracking-widest py-1.5 px-6 rounded-full shadow-lg">Most Popular</span>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-black text-secondary mb-1 mt-2">Growth</h3>
+                        <p class="text-slate-300 text-xs uppercase tracking-wider font-bold mb-6">Best for local shops & services</p>
+                        <div class="flex items-baseline mb-6">
+                            <span class="text-4xl md:text-5xl font-black text-white">₹1,699</span>
+                            <span class="text-slate-400 ml-2 text-sm font-medium">/one-time</span>
+                        </div>
+                        <ul class="space-y-4 mb-8 text-slate-200 text-sm font-medium">
+                            <li class="flex items-center gap-3"><i class="fas fa-check-circle text-secondary text-lg shrink-0"></i> Up to 7 Pages Setup</li>
+                            <li class="flex items-center gap-3"><i class="fas fa-check-circle text-secondary text-lg shrink-0"></i> Lead Generation Form</li>
+                            <li class="flex items-center gap-3"><i class="fas fa-check-circle text-secondary text-lg shrink-0"></i> Google Maps Setup</li>
+                            <li class="flex items-center gap-3"><i class="fas fa-check-circle text-secondary text-lg shrink-0"></i> Advanced Animations</li>
+                            <li class="flex items-center gap-3 bg-white/10 p-2.5 rounded-lg border border-white/5"><i class="fas fa-star text-secondary text-lg shrink-0"></i> GMB Local SEO Tags</li>
+                        </ul>
+                    </div>
+                    <!-- Triggers Client Portal Modal -->
+                    <button onclick="openLoginModal()" class="w-full bg-secondary hover:bg-white hover:text-primary-dark text-white font-black py-4 rounded-xl transition shadow-lg text-base">
+                        Choose Growth
+                    </button>
+                </div>
+
+                <!-- Pro Suite Plan -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 flex flex-col justify-between hover:shadow-xl transition duration-300 reveal-fade-up delay-200 z-10 relative mt-4 md:mt-10">
+                    <div>
+                        <h3 class="text-2xl font-black text-primary-dark mb-1">Pro Suite</h3>
+                        <p class="text-slate-500 text-xs uppercase tracking-wider font-bold mb-6">For maximum scalability</p>
+                        <div class="flex items-baseline mb-6">
+                            <span class="text-4xl md:text-5xl font-black text-primary-dark">₹2,999</span>
+                            <span class="text-slate-400 ml-2 text-sm font-medium">/one-time</span>
+                        </div>
+                        <ul class="space-y-4 mb-8 text-slate-700 text-sm font-medium">
+                            <li class="flex items-center gap-3"><i class="fas fa-check-circle text-emerald-600 text-lg shrink-0"></i> Unlimited / Custom Pages</li>
+                            <li class="flex items-center gap-3"><i class="fas fa-check-circle text-emerald-600 text-lg shrink-0"></i> Premium Graphic UI</li>
+                            <li class="flex items-center gap-3"><i class="fas fa-check-circle text-emerald-600 text-lg shrink-0"></i> Glassmorphism FX</li>
+                            <li class="flex items-center gap-3"><i class="fas fa-check-circle text-emerald-600 text-lg shrink-0"></i> Priority VIP Delivery</li>
+                            <li class="flex items-center gap-3 bg-slate-50 p-2.5 rounded-lg border border-slate-100"><i class="fas fa-tools text-primary text-lg shrink-0"></i> Free Maintenance</li>
+                        </ul>
+                    </div>
+                    <!-- Triggers Client Portal Modal -->
+                    <button onclick="openLoginModal()" class="w-full bg-slate-100 hover:bg-primary hover:text-white text-primary-dark font-bold py-4 rounded-xl transition text-sm">
+                        Choose Pro
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Comparison Table -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-5 max-w-6xl">
+            <div class="text-center mb-16 reveal-fade-up">
+                <h2 class="text-3xl md:text-4xl font-black text-primary-dark mb-4">Detailed Feature Comparison</h2>
+                <p class="text-slate-600 text-lg max-w-2xl mx-auto">Still unsure? Compare our plans side-by-side to find the perfect fit for your digital growth strategy.</p>
+            </div>
+
+            <div class="bg-slate-50 rounded-3xl border border-slate-200 overflow-hidden shadow-sm reveal-fade-up overflow-x-auto">
+                <table class="w-full text-left border-collapse min-w-[800px]">
+                    <thead>
+                        <tr class="bg-primary-dark text-white">
+                            <th class="p-6 font-bold uppercase tracking-wider text-sm border-r border-white/10 w-1/4">Features</th>
+                            <th class="p-6 font-bold text-center border-r border-white/10 w-1/4">Starter<br><span class="text-xs text-slate-400 font-normal">₹999</span></th>
+                            <th class="p-6 font-bold text-center border-r border-white/10 w-1/4 bg-secondary/20 text-secondary">Growth<br><span class="text-xs text-slate-200 font-normal">₹1,699</span></th>
+                            <th class="p-6 font-bold text-center w-1/4">Pro Suite<br><span class="text-xs text-slate-400 font-normal">₹2,999</span></th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-200 bg-white text-sm">
+                        <tr class="hover:bg-slate-50 transition">
+                            <td class="p-5 font-bold text-slate-800 border-r border-slate-200">Page Count</td>
+                            <td class="p-5 text-center text-slate-600 border-r border-slate-200">1 Page</td>
+                            <td class="p-5 text-center font-bold text-primary border-r border-slate-200 bg-slate-50/50">Up to 7 Pages</td>
+                            <td class="p-5 text-center text-slate-600">Custom / Unlimited</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition">
+                            <td class="p-5 font-bold text-slate-800 border-r border-slate-200">Mobile Responsive</td>
+                            <td class="p-5 text-center border-r border-slate-200"><i class="fas fa-check text-emerald-500"></i></td>
+                            <td class="p-5 text-center border-r border-slate-200 bg-slate-50/50"><i class="fas fa-check text-emerald-500"></i></td>
+                            <td class="p-5 text-center"><i class="fas fa-check text-emerald-500"></i></td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition">
+                            <td class="p-5 font-bold text-slate-800 border-r border-slate-200">WhatsApp Lead Button</td>
+                            <td class="p-5 text-center border-r border-slate-200"><i class="fas fa-check text-emerald-500"></i></td>
+                            <td class="p-5 text-center border-r border-slate-200 bg-slate-50/50"><i class="fas fa-check text-emerald-500"></i></td>
+                            <td class="p-5 text-center"><i class="fas fa-check text-emerald-500"></i></td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition">
+                            <td class="p-5 font-bold text-slate-800 border-r border-slate-200">Contact Form Integration</td>
+                            <td class="p-5 text-center border-r border-slate-200"><i class="fas fa-times text-slate-300"></i></td>
+                            <td class="p-5 text-center border-r border-slate-200 bg-slate-50/50"><i class="fas fa-check text-emerald-500"></i></td>
+                            <td class="p-5 text-center"><i class="fas fa-check text-emerald-500"></i></td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition">
+                            <td class="p-5 font-bold text-slate-800 border-r border-slate-200">Google Maps Embedded</td>
+                            <td class="p-5 text-center border-r border-slate-200"><i class="fas fa-times text-slate-300"></i></td>
+                            <td class="p-5 text-center border-r border-slate-200 bg-slate-50/50"><i class="fas fa-check text-emerald-500"></i></td>
+                            <td class="p-5 text-center"><i class="fas fa-check text-emerald-500"></i></td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition">
+                            <td class="p-5 font-bold text-slate-800 border-r border-slate-200">Local SEO & GMB Tags</td>
+                            <td class="p-5 text-center border-r border-slate-200"><i class="fas fa-times text-slate-300"></i></td>
+                            <td class="p-5 text-center border-r border-slate-200 bg-slate-50/50"><i class="fas fa-check text-emerald-500"></i></td>
+                            <td class="p-5 text-center"><i class="fas fa-check text-emerald-500"></i></td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition">
+                            <td class="p-5 font-bold text-slate-800 border-r border-slate-200">Premium UI & Animations</td>
+                            <td class="p-5 text-center border-r border-slate-200"><i class="fas fa-times text-slate-300"></i></td>
+                            <td class="p-5 text-center border-r border-slate-200 bg-slate-50/50"><i class="fas fa-check text-emerald-500"></i></td>
+                            <td class="p-5 text-center"><i class="fas fa-check text-emerald-500"></i></td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition">
+                            <td class="p-5 font-bold text-slate-800 border-r border-slate-200">Delivery Time</td>
+                            <td class="p-5 text-center text-slate-600 border-r border-slate-200">3-5 Days</td>
+                            <td class="p-5 text-center text-primary font-bold border-r border-slate-200 bg-slate-50/50">5-7 Days</td>
+                            <td class="p-5 text-center text-slate-600">Priority (Fastest)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing FAQs -->
+    <section class="py-20 bg-slate-50 border-t border-slate-200">
+        <div class="container mx-auto px-5 max-w-4xl">
+            <div class="text-center mb-12 reveal-fade-up">
+                <h2 class="text-3xl font-black text-primary-dark mb-4">Pricing & Payment FAQs</h2>
+                <p class="text-slate-600">Everything you need to know about our billing and setup process.</p>
+            </div>
+            
+            <div class="space-y-4">
+                <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm reveal-fade-up">
+                    <h4 class="text-lg font-bold text-primary-dark mb-2 flex items-center gap-2"><i class="fas fa-money-check-alt text-secondary"></i> How do I make the payment?</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">Once you click 'Choose Plan', you will be redirected to our Secure Client Portal. After logging in, you can pay instantly via UPI (Google Pay, PhonePe, Paytm) and submit your UTR reference securely.</p>
+                </div>
+                <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm reveal-fade-up delay-100">
+                    <h4 class="text-lg font-bold text-primary-dark mb-2 flex items-center gap-2"><i class="fas fa-server text-secondary"></i> Are there any hidden hosting fees?</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">No. We deploy your website on high-speed global CDNs. The price listed is a one-time fee for design and deployment. If you require a custom `.com` or `.in` domain, we can guide you on purchasing it separately at cost price.</p>
+                </div>
+                <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm reveal-fade-up delay-200">
+                    <h4 class="text-lg font-bold text-primary-dark mb-2 flex items-center gap-2"><i class="fas fa-sync-alt text-secondary"></i> Can I upgrade my plan later?</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">Absolutely. If you start with the Starter Plan and later wish to add more pages, SEO, or animations, you can request an upgrade directly from your Client Dashboard at any time.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/919920048859" target="_blank" class="fixed bottom-6 right-6 bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-2xl hover:scale-110 transition-transform z-50 animate-bounce-slow" aria-label="WhatsApp Us">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-300 py-16 border-t border-slate-800">
+        <div class="container mx-auto px-5 max-w-7xl">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
+                <div>
+                    <a href="index.html" class="flex items-center gap-2 text-2xl font-black text-white mb-4">
+                        <img src="logo.png" alt="QwickDesk Logo" class="h-8 w-auto object-contain"> QwickDesk.
+                    </a>
+                    <p class="text-sm text-slate-400 mb-6 max-w-xs">Transforming local businesses into digital powerhouses with premium web architecture.</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Quick Links</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="services.html" class="hover:text-secondary transition">Our Expertise</a></li>
+                        <li><a href="pricing.html" class="text-secondary transition">Pricing Plans</a></li>
+                        <li><a href="blogs.html" class="hover:text-secondary transition">Latest Insights</a></li>
+                        <li><a href="contact.html" class="hover:text-secondary transition">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Get in Touch</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-phone-alt text-secondary"></i>
+                            <a href="tel:+919920048859" class="hover:text-white transition">+91 99200 48859</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-envelope text-secondary"></i>
+                            <a href="mailto:qwickdesksolutions@outlook.com" class="hover:text-white transition">qwickdesksolutions@outlook.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 pt-8 text-center text-xs">
+                <p>&copy; 2026 QwickDesk Solutions. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal Scripts -->
+    <script>
+        function openLoginModal() {
+            const modal = document.getElementById('loginModal');
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modal.querySelector('.modal-card').classList.remove('scale-95');
+            }, 10);
         }
 
-        // Close modal on outside click
-        window.addEventListener('click', (event) => {
-            const modal = document.getElementById('paymentModal');
-            if (event.target === modal) {
-                closeCheckout();
-            }
+        function closeLoginModal() {
+            const modal = document.getElementById('loginModal');
+            modal.classList.add('opacity-0');
+            modal.querySelector('.modal-card').classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        document.getElementById('loginModal').addEventListener('click', function(e) {
+            if (e.target === this) closeLoginModal();
         });
     </script>
+    <script src="script.js"></script>
 </body>
 </html>
