@@ -2,174 +2,432 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QwickDesk Solutions | High-End Web Design</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>QwickDesk Solutions | High-End Web Design Agency</title>
     
-    <!-- Favicon link added here -->
+    <!-- SEO & Meta Tags -->
+    <meta name="description" content="QwickDesk Solutions - We build high-converting, lightning-fast premium websites for local businesses.">
+    <meta name="theme-color" content="#0f172a">
+    
+    <!-- Favicon -->
     <link rel="icon" href="favicon.png" type="image/png">
     
+    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- External Custom Stylesheet (Will be provided at the end) -->
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* Hero Section */
-        .hero { min-height: 90vh; display: flex; align-items: center; }
-        .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-        .hero-content h1 { font-size: 4.5rem; margin-bottom: 20px; line-height: 1.1; }
-        .hero-content p { font-size: 1.25rem; margin-bottom: 35px; color: var(--text-muted); }
-        .hero-buttons { display: flex; gap: 20px; flex-wrap: wrap; }
-        
-        /* Stats / Why Digital */
-        .knowledge-section { background: var(--dark); color: white; padding: 80px 5%; border-radius: 40px; margin: 50px 5%; }
-        .knowledge-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; text-align: center; }
-        .stat-box i { font-size: 40px; color: var(--primary-light); margin-bottom: 20px; }
-        .stat-box h3 { color: white; font-size: 2.5rem; margin-bottom: 10px; }
-        .stat-box p { color: #cbd5e1; font-size: 1.1rem; }
-
-        /* Process Section */
-        .process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 50px; }
-        .process-card { padding: 40px; text-align: center; background: white; border-radius: 24px; box-shadow: var(--shadow-sm); }
-        .process-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-md); border-bottom: 4px solid var(--primary-light); }
-        .process-icon { width: 80px; height: 80px; background: #eff6ff; color: var(--primary-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; margin: 0 auto 20px; }
-
-        /* Compact Live Demo Widget Section */
-        .demo-preview-section { max-width: 900px; margin: 60px auto; padding: 0 20px; text-align: center; }
-        .demo-widget-card { background: white; border-radius: 20px; box-shadow: var(--shadow-md); overflow: hidden; border: 1px solid #e2e8f0; transition: all 0.3s ease; }
-        .demo-widget-card:hover { box-shadow: var(--shadow-glow); }
-        .demo-widget-header { background: #f8fafc; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e2e8f0; }
-        .demo-widget-header span { font-weight: 600; color: var(--dark); font-size: 1rem; display: flex; align-items: center; gap: 8px; }
-        .demo-iframe-container { position: relative; width: 100%; height: 350px; background: #0f172a; }
-        .demo-iframe-container iframe { width: 100%; height: 100%; border: none; }
-        .demo-overlay-btn { position: absolute; bottom: 20px; right: 20px; background: var(--primary); color: white; padding: 10px 20px; border-radius: 30px; font-weight: 600; text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.3); transition: transform 0.2s; }
-        .demo-overlay-btn:hover { transform: scale(1.05); }
-
-        /* Big CTA Banner */
-        .cta-banner { background: linear-gradient(135deg, var(--primary-light), var(--primary)); text-align: center; padding: 80px 20px; color: white; border-radius: 40px; margin: 100px 5%; box-shadow: var(--shadow-glow); }
-        .cta-banner h2 { color: white; font-size: 3rem; margin-bottom: 20px; }
-
-        @media (max-width: 991px) {
-            .hero-grid { grid-template-columns: 1fr; text-align: center; }
-            .hero-content h1 { font-size: 3rem; }
-            .hero-buttons { justify-content: center; }
-            .process-grid { grid-template-columns: 1fr; }
-            .cta-banner h2 { font-size: 2.2rem; }
-            .demo-iframe-container { height: 280px; }
-        }
-    </style>
 </head>
-<body>
+<body class="overflow-x-hidden antialiased bg-slate-50 text-slate-800">
 
-    <nav class="navbar">
-        <div class="logo">
-            <img src="logo.png" alt="QwickDesk Logo" style="height: 40px; vertical-align: middle; margin-right: 10px;">
-            QwickDesk<span>.</span>
-        </div>
-        <div class="nav-menu">
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="services.html">Our Expertise</a></li>
-                <li><a href="pricing.html">Pricing</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-            <div class="nav-actions">
-                <a href="pricing.html" class="btn btn-primary">Packages</a>
-                <div class="hamburger"><i class="fas fa-bars"></i></div>
+    <!-- Top Announcement Bar -->
+    <div class="announcement-bar bg-primary-dark text-white text-xs sm:text-sm py-2 px-4 text-center font-bold tracking-wider">
+        ✨ Elevate Your Local Business in 2026. <a href="pricing.html" class="underline text-secondary hover:text-white transition">View Our Packages &rarr;</a>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar sticky top-0 z-50 bg-white/90 backdrop-blur-lg border-b border-slate-200 transition-all duration-300">
+        <div class="container mx-auto px-5 h-20 flex justify-between items-center max-w-7xl">
+            
+            <!-- Custom Logo -->
+            <a href="index.html" class="logo flex items-center gap-2 text-2xl font-black text-primary-dark">
+                <img src="logo.png" alt="QwickDesk Logo" class="h-10 w-auto object-contain">
+                QwickDesk<span class="text-secondary">.</span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="nav-menu hidden lg:flex items-center gap-8 font-semibold text-slate-600 text-sm">
+                <a href="index.html" class="active text-primary hover:text-primary-dark transition">Home</a>
+                <a href="services.html" class="hover:text-primary transition">Our Expertise</a>
+                <a href="pricing.html" class="hover:text-primary transition">Pricing</a>
+                <a href="blogs.html" class="hover:text-primary transition">Insights</a>
+                <a href="contact.html" class="hover:text-primary transition">Contact</a>
+            </div>
+
+            <!-- Nav Actions & Portal Login -->
+            <div class="nav-actions flex items-center gap-4">
+                <!-- Client Portal Button -->
+                <button onclick="openLoginModal()" class="btn-portal hidden sm:flex items-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-800 px-5 py-2.5 rounded-full font-bold text-sm transition border border-slate-300 shadow-sm">
+                    <i class="fas fa-user-circle text-primary"></i> Client Portal
+                </button>
+                
+                <a href="contact.html" class="btn-primary bg-primary hover:bg-primary-dark text-white px-6 py-2.5 rounded-full font-bold text-sm transition shadow-lg shadow-primary/30 hidden md:block">
+                    Start Project
+                </a>
+
+                <!-- Mobile Hamburger -->
+                <button class="hamburger lg:hidden text-2xl text-primary-dark focus:outline-none" aria-label="Toggle Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
         </div>
     </nav>
 
-    <section class="section-padding hero">
-        <div class="hero-grid">
-            <div class="hero-content reveal">
-                <h1 class="text-gradient">Dominate Your Local Market Online.</h1>
-                <p>A website is not just a digital brochure; it's a 24/7 sales engine. We build highly optimized, premium web experiences for shops, consultancies, and classes.</p>
-                <div class="hero-buttons">
-                    <a href="services.html" class="btn btn-primary">Explore Expertise <i class="fas fa-arrow-right"></i></a>
-                    <a href="https://wa.me/919920048859" class="btn btn-outline"><i class="fab fa-whatsapp"></i> Chat with Expert</a>
+    <!-- Mobile Menu Overlay (Hidden by default, controlled via JS) -->
+    <div class="mobile-menu-overlay fixed inset-0 bg-primary-dark/95 backdrop-blur-md z-40 hidden flex-col items-center justify-center gap-6 text-white text-xl font-bold">
+        <a href="index.html">Home</a>
+        <a href="services.html">Our Expertise</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="blogs.html">Insights</a>
+        <a href="contact.html">Contact</a>
+        <button onclick="openLoginModal()" class="mt-4 bg-secondary text-white px-8 py-3 rounded-full shadow-lg">
+            <i class="fas fa-lock"></i> Client Portal Login
+        </button>
+    </div>
+
+    <!-- Client Portal Login Popup Modal -->
+    <div id="loginModal" class="modal-overlay fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-[100] hidden items-center justify-center p-4 opacity-0 transition-opacity duration-300">
+        <div class="modal-card bg-white w-full max-w-md rounded-3xl shadow-2xl overflow-hidden transform scale-95 transition-transform duration-300 relative">
+            <!-- Modal Header -->
+            <div class="bg-primary-dark p-6 text-center relative">
+                <button onclick="closeLoginModal()" class="absolute top-4 right-4 text-white/70 hover:text-white text-xl transition">
+                    <i class="fas fa-times-circle"></i>
+                </button>
+                <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-3 border border-white/20">
+                    <i class="fas fa-shield-alt text-2xl text-secondary"></i>
+                </div>
+                <h3 class="text-2xl font-black text-white">Secure Workspace</h3>
+                <p class="text-slate-300 text-sm mt-1">Access your live project tracker and invoices.</p>
+            </div>
+            <!-- Modal Body -->
+            <div class="p-8 text-center bg-slate-50">
+                <p class="text-slate-600 font-medium mb-6 text-sm">
+                    You are being redirected to our secure enterprise subdomain to access your dashboard.
+                </p>
+                <div class="bg-white border border-slate-200 p-4 rounded-xl mb-6 shadow-sm flex items-center justify-center gap-3">
+                    <i class="fas fa-link text-slate-400"></i>
+                    <span class="text-primary font-bold font-mono text-sm tracking-tight break-all">web.qwickdesksolutions.co.in</span>
+                </div>
+                <div class="flex flex-col gap-3">
+                    <a href="https://web.qwickdesksolutions.co.in/login.html" class="bg-primary hover:bg-primary-dark text-white font-bold py-3.5 rounded-xl shadow-lg transition flex items-center justify-center gap-2 w-full">
+                        Continue to Login <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <button onclick="closeLoginModal()" class="text-slate-500 hover:text-slate-800 font-bold py-3 text-sm transition">
+                        Cancel
+                    </button>
                 </div>
             </div>
-            <div class="hero-img reveal delay-1">
-                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=80" alt="QwickDesk Setup">
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="hero-section relative pt-20 pb-32 lg:pt-32 lg:pb-40 overflow-hidden">
+        <!-- Background decorative elements -->
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-primary/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-secondary/10 rounded-full blur-3xl pointer-events-none"></div>
+        
+        <div class="container mx-auto px-5 max-w-7xl relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+                <!-- Hero Content -->
+                <div class="hero-content text-center lg:text-left reveal-fade-up">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 border border-slate-200 text-primary-dark text-xs sm:text-sm font-bold uppercase tracking-wider mb-6">
+                        <span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+                        Premium Agency for Local Brands
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-primary-dark leading-[1.15] tracking-tight mb-6">
+                        Dominate Your Local Market <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Online.</span>
+                    </h1>
+                    <p class="text-base sm:text-lg text-slate-600 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        A website is not just a digital brochure; it's a 24/7 sales engine. We build highly optimized, premium web experiences for shops, consultancies, and local enterprises.
+                    </p>
+                    <div class="hero-buttons flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="services.html" class="bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-full font-bold text-center transition shadow-xl shadow-primary/30 flex items-center justify-center gap-2">
+                            Explore Expertise <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="pricing.html" class="bg-white hover:bg-slate-50 text-primary-dark border-2 border-slate-200 px-8 py-4 rounded-full font-bold text-center transition shadow-sm flex items-center justify-center gap-2">
+                            View Packages
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Graphic / Image -->
+                <div class="hero-img relative reveal-fade-left">
+                    <div class="relative rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white transform lg:rotate-2 hover:rotate-0 transition duration-500">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=80" alt="QwickDesk Setup" class="w-full h-auto object-cover md:h-[450px]">
+                        <!-- Floating Badge -->
+                        <div class="absolute bottom-6 left-6 bg-white/90 backdrop-blur-md p-4 rounded-2xl shadow-lg border border-white/50 flex items-center gap-4 animate-float">
+                            <div class="w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center text-secondary text-xl">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-500 font-bold uppercase">Performance</p>
+                                <p class="text-lg font-black text-primary-dark">99/100 Speed</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Trusted By / Marquee Section -->
+    <section class="py-10 border-y border-slate-200 bg-white overflow-hidden">
+        <div class="container mx-auto px-5 text-center mb-6">
+            <p class="text-sm font-bold text-slate-400 uppercase tracking-widest">Trusted by 50+ Local Enterprises & Shops</p>
+        </div>
+        <!-- Simple CSS Marquee -->
+        <div class="marquee-container flex gap-12 opacity-50 justify-center flex-wrap px-5">
+            <i class="fab fa-aws text-4xl text-slate-400"></i>
+            <i class="fab fa-digital-ocean text-4xl text-slate-400"></i>
+            <i class="fab fa-stripe text-4xl text-slate-400"></i>
+            <i class="fab fa-cloudflare text-4xl text-slate-400"></i>
+            <i class="fab fa-google text-4xl text-slate-400"></i>
+        </div>
+    </section>
+
+    <!-- Interactive Live Preview Section -->
+    <section class="demo-preview-section py-20 lg:py-32 bg-slate-50 relative">
+        <div class="container mx-auto px-5 max-w-5xl text-center">
+            <div class="section-title mb-12 reveal-fade-up">
+                <span class="text-secondary font-bold tracking-widest uppercase text-sm">Experience Velocity</span>
+                <h2 class="text-3xl md:text-5xl font-black text-primary-dark mt-2 mb-4">Live Interactive Preview</h2>
+                <p class="text-slate-600 text-lg max-w-2xl mx-auto">Don't just take our word for it. Experience our high-speed architecture and fluid UI components right here.</p>
+            </div>
+            
+            <div class="demo-widget-card bg-white rounded-3xl shadow-2xl overflow-hidden border border-slate-200 reveal-zoom-in">
+                <!-- Browser Header Mockup -->
+                <div class="bg-slate-100 px-4 py-3 flex items-center justify-between border-b border-slate-200">
+                    <div class="flex gap-2">
+                        <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                        <div class="w-3 h-3 rounded-full bg-amber-400"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-400"></div>
+                    </div>
+                    <div class="bg-white px-4 py-1 rounded-md text-xs font-mono text-slate-500 border border-slate-200 flex items-center gap-2 truncate max-w-[200px] sm:max-w-xs">
+                        <i class="fas fa-lock text-green-500"></i> qwickdesk-live-demos.workers.dev
+                    </div>
+                    <div>
+                        <a href="https://qwickdesk-live-demos.instadesksolutions.workers.dev" target="_blank" class="text-primary hover:text-primary-dark text-sm font-bold transition hidden sm:block">
+                            Full Screen <i class="fas fa-external-link-alt ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Iframe Container -->
+                <div class="relative w-full h-[350px] sm:h-[450px] bg-slate-900">
+                    <iframe src="https://qwickdesk-live-demos.instadesksolutions.workers.dev" title="QwickDesk Live Demo" class="w-full h-full border-none"></iframe>
+                    
+                    <!-- Overlay Button for Mobile to break out of iframe if needed -->
+                    <a href="https://qwickdesk-live-demos.instadesksolutions.workers.dev" target="_blank" class="absolute bottom-6 right-6 bg-primary text-white px-6 py-3 rounded-full font-bold shadow-xl hover:scale-105 transition-transform flex items-center gap-2 text-sm sm:hidden">
+                        <i class="fas fa-rocket"></i> Open App
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="demo-preview-section reveal">
-        <div class="section-title" style="margin-bottom: 25px;">
-            <h2>Live Interactive Preview</h2>
-            <p>Experience our high-speed worker platform in real-time right here.</p>
-        </div>
-        <div class="demo-widget-card">
-            <div class="demo-widget-header">
-                <span><i class="fas fa-circle" style="color: #22c55e; font-size: 10px;"></i> qwickdesk-live-demos.instadesksolutions.workers.dev</span>
-                <a href="https://qwickdesk-live-demos.instadesksolutions.workers.dev" target="_blank" style="font-size: 0.9rem; color: var(--primary); text-decoration: none; font-weight: 600;">Full Screen <i class="fas fa-external-link-alt"></i></a>
+    <!-- Why Digital / Stats Section -->
+    <section class="knowledge-section py-20 lg:py-32 bg-primary-dark text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+        <div class="container mx-auto px-5 max-w-7xl relative z-10">
+            <div class="text-center mb-16 reveal-fade-up">
+                <h2 class="text-3xl md:text-5xl font-black mb-4">Why Your Business Needs Us</h2>
+                <p class="text-slate-300 text-lg max-w-2xl mx-auto">In 2026, relying only on word-of-mouth is not enough. Here is why going digital the right way changes the game entirely.</p>
             </div>
-            <div class="demo-iframe-container">
-                <iframe src="https://qwickdesk-live-demos.instadesksolutions.workers.dev" title="QwickDesk Live Demo"></iframe>
-                <a href="https://qwickdesk-live-demos.instadesksolutions.workers.dev" target="_blank" class="demo-overlay-btn"><i class="fas fa-rocket"></i> Visit Live Demo</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="knowledge-section reveal">
-        <div class="section-title">
-            <h2 style="color:white;">Why Your Business Needs Us</h2>
-            <p style="color:#cbd5e1;">In 2026, relying only on word-of-mouth is not enough. Here is why going digital the right way changes the game.</p>
-        </div>
-        <div class="knowledge-grid">
-            <div class="stat-box">
-                <i class="fas fa-search"></i>
-                <h3>90%</h3>
-                <p>Of customers search online before visiting a local store or consultancy.</p>
-            </div>
-            <div class="stat-box">
-                <i class="fas fa-tachometer-alt"></i>
-                <h3>3 Secs</h3>
-                <p>If your site takes longer to load, 50% of your potential clients will leave.</p>
-            </div>
-            <div class="stat-box">
-                <i class="fas fa-chart-line"></i>
-                <h3>24/7</h3>
-                <p>Your business generates leads even when your physical shop is closed.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="stat-box p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm reveal-fade-up delay-100">
+                    <i class="fas fa-search text-4xl text-secondary mb-6 block"></i>
+                    <h3 class="text-5xl font-black mb-3">90%</h3>
+                    <p class="text-slate-300">Of customers search online before visiting a local store, clinic, or consultancy.</p>
+                </div>
+                <div class="stat-box p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm reveal-fade-up delay-200">
+                    <i class="fas fa-tachometer-alt text-4xl text-secondary mb-6 block"></i>
+                    <h3 class="text-5xl font-black mb-3">3 Sec</h3>
+                    <p class="text-slate-300">If your site takes longer to load, over 50% of your potential clients will bounce immediately.</p>
+                </div>
+                <div class="stat-box p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm reveal-fade-up delay-300">
+                    <i class="fas fa-chart-line text-4xl text-secondary mb-6 block"></i>
+                    <h3 class="text-5xl font-black mb-3">24/7</h3>
+                    <p class="text-slate-300">Your digital assets generate qualified leads even while your physical shop is closed.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="section-padding">
-        <div class="section-title reveal">
-            <h2>Our Flawless Process</h2>
-            <p>How we take your physical business and transform it into a digital powerhouse in just a few days.</p>
-        </div>
-        <div class="process-grid">
-            <div class="process-card reveal">
-                <div class="process-icon"><i class="fas fa-lightbulb"></i></div>
-                <h3>1. Discovery</h3>
-                <p>We analyze your business, your target audience, and your competitors to map out the perfect digital strategy.</p>
+    <!-- Our Process Section -->
+    <section class="process-section py-20 lg:py-32 bg-white">
+        <div class="container mx-auto px-5 max-w-7xl">
+            <div class="text-center mb-16 reveal-fade-up">
+                <span class="text-secondary font-bold tracking-widest uppercase text-sm">Workflow</span>
+                <h2 class="text-3xl md:text-5xl font-black text-primary-dark mt-2 mb-4">Our Flawless Process</h2>
+                <p class="text-slate-600 text-lg max-w-2xl mx-auto">How we take your physical business and transform it into a highly profitable digital powerhouse in just a few days.</p>
             </div>
-            <div class="process-card reveal delay-1">
-                <div class="process-icon"><i class="fas fa-laptop-code"></i></div>
-                <h3>2. Architecture</h3>
-                <p>We write clean, lightweight code and design custom graphics to ensure your brand looks premium and unique.</p>
-            </div>
-            <div class="process-card reveal delay-2">
-                <div class="process-icon"><i class="fas fa-rocket"></i></div>
-                <h3>3. Deployment</h3>
-                <p>Your platform goes live with advanced SEO tags, instant load speeds, and integrated lead generation forms.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Step 1 -->
+                <div class="process-card text-center p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:shadow-xl hover:-translate-y-2 transition duration-300 reveal-fade-up">
+                    <div class="w-16 h-16 mx-auto bg-white rounded-full flex items-center justify-center text-2xl text-primary shadow-sm mb-6 border border-slate-200">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="text-xl font-black text-primary-dark mb-3">1. Discovery</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">We analyze your business, target audience, and competitors to map out the perfect digital strategy.</p>
+                </div>
+                <!-- Step 2 -->
+                <div class="process-card text-center p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:shadow-xl hover:-translate-y-2 transition duration-300 reveal-fade-up delay-100">
+                    <div class="w-16 h-16 mx-auto bg-white rounded-full flex items-center justify-center text-2xl text-primary shadow-sm mb-6 border border-slate-200">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3 class="text-xl font-black text-primary-dark mb-3">2. Architecture</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">We write clean, lightweight code and design custom graphics to ensure a premium brand look.</p>
+                </div>
+                <!-- Step 3 -->
+                <div class="process-card text-center p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:shadow-xl hover:-translate-y-2 transition duration-300 reveal-fade-up delay-200">
+                    <div class="w-16 h-16 mx-auto bg-white rounded-full flex items-center justify-center text-2xl text-primary shadow-sm mb-6 border border-slate-200">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-black text-primary-dark mb-3">3. Review</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">You access your client portal to track the build, test responsiveness, and approve the UI design.</p>
+                </div>
+                <!-- Step 4 -->
+                <div class="process-card text-center p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:shadow-xl hover:-translate-y-2 transition duration-300 reveal-fade-up delay-300">
+                    <div class="w-16 h-16 mx-auto bg-white rounded-full flex items-center justify-center text-2xl text-primary shadow-sm mb-6 border border-slate-200">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3 class="text-xl font-black text-primary-dark mb-3">4. Deployment</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Your platform goes live with advanced SEO tags, local GMB sync, and instant lead capture forms.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="cta-banner reveal">
-        <h2>Ready to Scale Your Revenue?</h2>
-        <p style="font-size: 1.2rem; margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto;">Stop losing clients to competitors who have a better online presence. Let's build something extraordinary today.</p>
-        <a href="pricing.html" class="btn btn-outline" style="background: white; color: var(--primary); padding: 18px 40px; font-size: 1.1rem;">View Our Packages</a>
+    <!-- FAQ Section -->
+    <section class="faq-section py-20 bg-slate-50 border-t border-slate-200">
+        <div class="container mx-auto px-5 max-w-4xl">
+            <div class="text-center mb-12 reveal-fade-up">
+                <h2 class="text-3xl font-black text-primary-dark mb-4">Frequently Asked Questions</h2>
+                <p class="text-slate-600">Got doubts? We have got clear, transparent answers.</p>
+            </div>
+            
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm reveal-fade-up">
+                    <h4 class="text-lg font-bold text-primary-dark mb-2 flex items-center gap-2"><i class="fas fa-question-circle text-secondary"></i> How do I pay and start the project?</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">You can browse our packages on the Pricing page. Clicking 'Choose Plan' will redirect you to our Secure Client Portal where you can login and submit your requirements safely.</p>
+                </div>
+                <!-- FAQ Item 2 -->
+                <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm reveal-fade-up delay-100">
+                    <h4 class="text-lg font-bold text-primary-dark mb-2 flex items-center gap-2"><i class="fas fa-question-circle text-secondary"></i> Is domain and hosting included?</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">Our packages cover the design, development, and lightning-fast cloud deployment. We will guide you transparently on linking your custom domain during setup.</p>
+                </div>
+                <!-- FAQ Item 3 -->
+                <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm reveal-fade-up delay-200">
+                    <h4 class="text-lg font-bold text-primary-dark mb-2 flex items-center gap-2"><i class="fas fa-question-circle text-secondary"></i> Will my website rank on Google?</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">Yes! All our Growth and Pro plans include standard Local SEO tags and Google My Business (GMB) integration to help you rank in your local area.</p>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <a href="https://wa.me/919920048859" class="floating-wa" target="_blank"><i class="fab fa-whatsapp"></i></a>
-    <footer>
-        <h2>QwickDesk Solutions.</h2>
-        <p>&copy; 2026 All Rights Reserved.</p>
+    <!-- Big CTA Banner -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-5 max-w-6xl">
+            <div class="bg-gradient-to-br from-primary to-primary-dark rounded-[3rem] p-10 md:p-16 text-center text-white shadow-2xl relative overflow-hidden reveal-zoom-in">
+                <!-- Abstract Rings -->
+                <div class="absolute top-0 left-0 w-64 h-64 border-4 border-white/10 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+                <div class="absolute bottom-0 right-0 w-80 h-80 border-4 border-white/10 rounded-full translate-x-1/3 translate-y-1/3"></div>
+                
+                <h2 class="text-3xl md:text-5xl font-black mb-6 relative z-10">Ready to Scale Your Revenue?</h2>
+                <p class="text-lg text-slate-200 mb-10 max-w-2xl mx-auto relative z-10">Stop losing clients to competitors who have a better online presence. Let's build an extraordinary digital asset for your business today.</p>
+                
+                <div class="flex flex-col sm:flex-row justify-center gap-4 relative z-10">
+                    <a href="pricing.html" class="bg-white text-primary-dark hover:bg-slate-50 px-8 py-4 rounded-full font-black text-lg transition shadow-lg w-full sm:w-auto">
+                        View Pricing Plans
+                    </a>
+                    <a href="https://wa.me/919920048859" target="_blank" class="bg-transparent border-2 border-white text-white hover:bg-white/10 px-8 py-4 rounded-full font-bold text-lg transition flex items-center justify-center gap-2 w-full sm:w-auto">
+                        <i class="fab fa-whatsapp"></i> Chat Expert
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/919920048859" target="_blank" class="fixed bottom-6 right-6 bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-2xl hover:scale-110 transition-transform z-50 animate-bounce-slow" aria-label="WhatsApp Us">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-300 py-16 border-t border-slate-800">
+        <div class="container mx-auto px-5 max-w-7xl">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
+                <!-- Brand -->
+                <div>
+                    <!-- Custom Logo in Footer -->
+                    <a href="index.html" class="flex items-center gap-2 text-2xl font-black text-white mb-4">
+                        <img src="logo.png" alt="QwickDesk Logo" class="h-8 w-auto object-contain"> QwickDesk.
+                    </a>
+                    <p class="text-sm text-slate-400 mb-6 max-w-xs">Transforming local businesses into digital powerhouses with premium web architecture.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary hover:text-white transition"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary hover:text-white transition"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <!-- Links -->
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Quick Links</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="services.html" class="hover:text-secondary transition">Our Expertise</a></li>
+                        <li><a href="pricing.html" class="hover:text-secondary transition">Pricing Plans</a></li>
+                        <li><a href="blogs.html" class="hover:text-secondary transition">Latest Insights</a></li>
+                        <li><a href="contact.html" class="hover:text-secondary transition">Contact Us</a></li>
+                    </ul>
+                </div>
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Get in Touch</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-map-marker-alt mt-1 text-secondary"></i>
+                            <span>Mumbai, Maharashtra, India</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-phone-alt text-secondary"></i>
+                            <a href="tel:+919920048859" class="hover:text-white transition">+91 99200 48859</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-envelope text-secondary"></i>
+                            <a href="mailto:qwickdesksolutions@outlook.com" class="hover:text-white transition">qwickdesksolutions@outlook.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
+                <p>&copy; 2026 QwickDesk Solutions. All Rights Reserved.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="hover:text-white transition">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition">Terms of Service</a>
+                </div>
+            </div>
+        </div>
     </footer>
+
+    <!-- Inline script for basic modal toggling (Will be expanded in script.js) -->
+    <script>
+        function openLoginModal() {
+            const modal = document.getElementById('loginModal');
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modal.querySelector('.modal-card').classList.remove('scale-95');
+            }, 10);
+        }
+
+        function closeLoginModal() {
+            const modal = document.getElementById('loginModal');
+            modal.classList.add('opacity-0');
+            modal.querySelector('.modal-card').classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        // Close on clicking outside
+        document.getElementById('loginModal').addEventListener('click', function(e) {
+            if (e.target === this) closeLoginModal();
+        });
+    </script>
+    
+    <!-- External Scripts -->
     <script src="script.js"></script>
 </body>
 </html>
- 
