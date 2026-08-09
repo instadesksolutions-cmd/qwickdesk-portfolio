@@ -12,10 +12,29 @@
     <!-- Favicon -->
     <link rel="icon" href="favicon.png" type="image/png">
     
+    <!-- 🚨 THE FIX: Tailwind CSS CDN Added Here 🚨 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#4060eb',
+                            light: '#6889f3',
+                            dark: '#1b2581'
+                        },
+                        secondary: '#f59e0b',
+                    }
+                }
+            }
+        }
+    </script>
+    
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- External Custom Stylesheet (Will be provided at the end) -->
+    <!-- Custom Stylesheet -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="overflow-x-hidden antialiased bg-slate-50 text-slate-800">
@@ -29,9 +48,10 @@
     <nav class="navbar sticky top-0 z-50 bg-white/90 backdrop-blur-lg border-b border-slate-200 transition-all duration-300">
         <div class="container mx-auto px-5 h-20 flex justify-between items-center max-w-7xl">
             
-            <!-- Custom Logo -->
+            <!-- Custom Logo (Fixed Size) -->
             <a href="index.html" class="logo flex items-center gap-2 text-2xl font-black text-primary-dark">
-                <img src="logo.png" alt="QwickDesk Logo" class="h-10 w-auto object-contain">
+                <!-- Added style="max-height: 40px;" for safety -->
+                <img src="logo.png" alt="QwickDesk Logo" class="h-10 w-auto object-contain" style="max-height: 40px;">
                 QwickDesk<span class="text-secondary">.</span>
             </a>
 
@@ -63,7 +83,7 @@
         </div>
     </nav>
 
-    <!-- Mobile Menu Overlay (Hidden by default, controlled via JS) -->
+    <!-- Mobile Menu Overlay (Hidden by default) -->
     <div class="mobile-menu-overlay fixed inset-0 bg-primary-dark/95 backdrop-blur-md z-40 hidden flex-col items-center justify-center gap-6 text-white text-xl font-bold">
         <a href="index.html">Home</a>
         <a href="services.html">Our Expertise</a>
@@ -75,10 +95,9 @@
         </button>
     </div>
 
-    <!-- Client Portal Login Popup Modal -->
+    <!-- Client Portal Login Popup Modal (Hidden properly now) -->
     <div id="loginModal" class="modal-overlay fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-[100] hidden items-center justify-center p-4 opacity-0 transition-opacity duration-300">
         <div class="modal-card bg-white w-full max-w-md rounded-3xl shadow-2xl overflow-hidden transform scale-95 transition-transform duration-300 relative">
-            <!-- Modal Header -->
             <div class="bg-primary-dark p-6 text-center relative">
                 <button onclick="closeLoginModal()" class="absolute top-4 right-4 text-white/70 hover:text-white text-xl transition">
                     <i class="fas fa-times-circle"></i>
@@ -89,7 +108,6 @@
                 <h3 class="text-2xl font-black text-white">Secure Workspace</h3>
                 <p class="text-slate-300 text-sm mt-1">Access your live project tracker and invoices.</p>
             </div>
-            <!-- Modal Body -->
             <div class="p-8 text-center bg-slate-50">
                 <p class="text-slate-600 font-medium mb-6 text-sm">
                     You are being redirected to our secure enterprise subdomain to access your dashboard.
@@ -112,13 +130,11 @@
 
     <!-- Hero Section -->
     <header class="hero-section relative pt-20 pb-32 lg:pt-32 lg:pb-40 overflow-hidden">
-        <!-- Background decorative elements -->
         <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-primary/10 rounded-full blur-3xl pointer-events-none"></div>
         <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-secondary/10 rounded-full blur-3xl pointer-events-none"></div>
         
         <div class="container mx-auto px-5 max-w-7xl relative z-10">
             <div class="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-                <!-- Hero Content -->
                 <div class="hero-content text-center lg:text-left reveal-fade-up">
                     <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 border border-slate-200 text-primary-dark text-xs sm:text-sm font-bold uppercase tracking-wider mb-6">
                         <span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
@@ -140,11 +156,9 @@
                     </div>
                 </div>
 
-                <!-- Hero Graphic / Image -->
                 <div class="hero-img relative reveal-fade-left">
                     <div class="relative rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white transform lg:rotate-2 hover:rotate-0 transition duration-500">
                         <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=80" alt="QwickDesk Setup" class="w-full h-auto object-cover md:h-[450px]">
-                        <!-- Floating Badge -->
                         <div class="absolute bottom-6 left-6 bg-white/90 backdrop-blur-md p-4 rounded-2xl shadow-lg border border-white/50 flex items-center gap-4 animate-float">
                             <div class="w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center text-secondary text-xl">
                                 <i class="fas fa-rocket"></i>
@@ -165,7 +179,6 @@
         <div class="container mx-auto px-5 text-center mb-6">
             <p class="text-sm font-bold text-slate-400 uppercase tracking-widest">Trusted by 50+ Local Enterprises & Shops</p>
         </div>
-        <!-- Simple CSS Marquee -->
         <div class="marquee-container flex gap-12 opacity-50 justify-center flex-wrap px-5">
             <i class="fab fa-aws text-4xl text-slate-400"></i>
             <i class="fab fa-digital-ocean text-4xl text-slate-400"></i>
@@ -185,7 +198,6 @@
             </div>
             
             <div class="demo-widget-card bg-white rounded-3xl shadow-2xl overflow-hidden border border-slate-200 reveal-zoom-in">
-                <!-- Browser Header Mockup -->
                 <div class="bg-slate-100 px-4 py-3 flex items-center justify-between border-b border-slate-200">
                     <div class="flex gap-2">
                         <div class="w-3 h-3 rounded-full bg-red-400"></div>
@@ -201,11 +213,8 @@
                         </a>
                     </div>
                 </div>
-                <!-- Iframe Container -->
                 <div class="relative w-full h-[350px] sm:h-[450px] bg-slate-900">
                     <iframe src="https://qwickdesk-live-demos.instadesksolutions.workers.dev" title="QwickDesk Live Demo" class="w-full h-full border-none"></iframe>
-                    
-                    <!-- Overlay Button for Mobile to break out of iframe if needed -->
                     <a href="https://qwickdesk-live-demos.instadesksolutions.workers.dev" target="_blank" class="absolute bottom-6 right-6 bg-primary text-white px-6 py-3 rounded-full font-bold shadow-xl hover:scale-105 transition-transform flex items-center gap-2 text-sm sm:hidden">
                         <i class="fas fa-rocket"></i> Open App
                     </a>
@@ -298,17 +307,14 @@
             </div>
             
             <div class="space-y-4">
-                <!-- FAQ Item 1 -->
                 <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm reveal-fade-up">
                     <h4 class="text-lg font-bold text-primary-dark mb-2 flex items-center gap-2"><i class="fas fa-question-circle text-secondary"></i> How do I pay and start the project?</h4>
                     <p class="text-slate-600 text-sm leading-relaxed">You can browse our packages on the Pricing page. Clicking 'Choose Plan' will redirect you to our Secure Client Portal where you can login and submit your requirements safely.</p>
                 </div>
-                <!-- FAQ Item 2 -->
                 <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm reveal-fade-up delay-100">
                     <h4 class="text-lg font-bold text-primary-dark mb-2 flex items-center gap-2"><i class="fas fa-question-circle text-secondary"></i> Is domain and hosting included?</h4>
                     <p class="text-slate-600 text-sm leading-relaxed">Our packages cover the design, development, and lightning-fast cloud deployment. We will guide you transparently on linking your custom domain during setup.</p>
                 </div>
-                <!-- FAQ Item 3 -->
                 <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm reveal-fade-up delay-200">
                     <h4 class="text-lg font-bold text-primary-dark mb-2 flex items-center gap-2"><i class="fas fa-question-circle text-secondary"></i> Will my website rank on Google?</h4>
                     <p class="text-slate-600 text-sm leading-relaxed">Yes! All our Growth and Pro plans include standard Local SEO tags and Google My Business (GMB) integration to help you rank in your local area.</p>
@@ -321,7 +327,6 @@
     <section class="py-20 bg-white">
         <div class="container mx-auto px-5 max-w-6xl">
             <div class="bg-gradient-to-br from-primary to-primary-dark rounded-[3rem] p-10 md:p-16 text-center text-white shadow-2xl relative overflow-hidden reveal-zoom-in">
-                <!-- Abstract Rings -->
                 <div class="absolute top-0 left-0 w-64 h-64 border-4 border-white/10 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
                 <div class="absolute bottom-0 right-0 w-80 h-80 border-4 border-white/10 rounded-full translate-x-1/3 translate-y-1/3"></div>
                 
@@ -349,9 +354,7 @@
     <footer class="bg-slate-900 text-slate-300 py-16 border-t border-slate-800">
         <div class="container mx-auto px-5 max-w-7xl">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
-                <!-- Brand -->
                 <div>
-                    <!-- Custom Logo in Footer -->
                     <a href="index.html" class="flex items-center gap-2 text-2xl font-black text-white mb-4">
                         <img src="logo.png" alt="QwickDesk Logo" class="h-8 w-auto object-contain"> QwickDesk.
                     </a>
@@ -362,7 +365,6 @@
                         <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary hover:text-white transition"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
-                <!-- Links -->
                 <div>
                     <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Quick Links</h4>
                     <ul class="space-y-3 text-sm">
@@ -372,7 +374,6 @@
                         <li><a href="contact.html" class="hover:text-secondary transition">Contact Us</a></li>
                     </ul>
                 </div>
-                <!-- Contact Info -->
                 <div>
                     <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Get in Touch</h4>
                     <ul class="space-y-4 text-sm">
@@ -401,7 +402,7 @@
         </div>
     </footer>
 
-    <!-- Inline script for basic modal toggling (Will be expanded in script.js) -->
+    <!-- Inline script for basic modal toggling -->
     <script>
         function openLoginModal() {
             const modal = document.getElementById('loginModal');
@@ -421,7 +422,6 @@
             }, 300);
         }
 
-        // Close on clicking outside
         document.getElementById('loginModal').addEventListener('click', function(e) {
             if (e.target === this) closeLoginModal();
         });
