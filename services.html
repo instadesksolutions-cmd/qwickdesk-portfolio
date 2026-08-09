@@ -2,121 +2,361 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Our Expertise | QwickDesk Solutions</title>
+    
+    <meta name="description" content="Discover how QwickDesk Solutions transforms local businesses with premium UI, extreme speed, and lead generation systems.">
+    <meta name="theme-color" content="#0f172a">
+    
+    <link rel="icon" href="favicon.png" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <style>
-        .header-bg { background: linear-gradient(135deg, #f8fafc, #eff6ff); padding: 150px 5% 80px; text-align: center; border-radius: 0 0 50px 50px; margin-bottom: 80px; }
-        .header-bg h1 { font-size: 4rem; margin-bottom: 20px; }
-        
-        .expertise-container { max-width: 1100px; margin: auto; padding: 0 5% 100px; }
-        .step-row { display: flex; align-items: flex-start; gap: 40px; margin-bottom: 60px; background: white; padding: 50px; border-radius: 30px; box-shadow: var(--shadow-sm); transition: var(--transition); border: 1px solid transparent; }
-        .step-row:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: #e2e8f0; }
-        
-        .step-number { font-size: 4rem; font-weight: 800; color: var(--primary-light); opacity: 0.2; line-height: 0.8; }
-        .step-content h3 { font-size: 2rem; margin-bottom: 20px; color: var(--dark); }
-        .step-content p { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 20px; line-height: 1.8; }
-        .detail-list { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        .detail-list li { display: flex; align-items: center; gap: 10px; font-weight: 600; color: var(--text-main); }
-        .detail-list li i { color: var(--secondary); }
-
-        @media (max-width: 768px) {
-            .header-bg h1 { font-size: 3rem; }
-            .step-row { flex-direction: column; gap: 20px; padding: 30px; }
-            .detail-list { grid-template-columns: 1fr; }
-        }
-    </style>
 </head>
-<body>
+<body class="overflow-x-hidden antialiased bg-slate-50 text-slate-800">
 
-    <nav class="navbar">
-        <div class="logo">QwickDesk<span>.</span></div>
-        <div class="nav-menu">
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="services.html" class="active">Our Expertise</a></li>
-                <li><a href="pricing.html">Pricing</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-            <div class="nav-actions">
-                <a href="pricing.html" class="btn btn-primary">Packages</a>
-                <div class="hamburger"><i class="fas fa-bars"></i></div>
+    <!-- Navigation Bar (Consistent across all pages) -->
+    <nav class="navbar sticky top-0 z-50 bg-white/90 backdrop-blur-lg border-b border-slate-200 transition-all duration-300">
+        <div class="container mx-auto px-5 h-20 flex justify-between items-center max-w-7xl">
+            <!-- Custom Logo -->
+            <a href="index.html" class="logo flex items-center gap-2 text-2xl font-black text-primary-dark">
+                <img src="logo.png" alt="QwickDesk Logo" class="h-10 w-auto object-contain">
+                QwickDesk<span class="text-secondary">.</span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="nav-menu hidden lg:flex items-center gap-8 font-semibold text-slate-600 text-sm">
+                <a href="index.html" class="hover:text-primary transition">Home</a>
+                <a href="services.html" class="active text-primary hover:text-primary-dark transition">Our Expertise</a>
+                <a href="pricing.html" class="hover:text-primary transition">Pricing</a>
+                <a href="blogs.html" class="hover:text-primary transition">Insights</a>
+                <a href="contact.html" class="hover:text-primary transition">Contact</a>
+            </div>
+
+            <!-- Nav Actions -->
+            <div class="nav-actions flex items-center gap-4">
+                <button onclick="openLoginModal()" class="btn-portal hidden sm:flex items-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-800 px-5 py-2.5 rounded-full font-bold text-sm transition border border-slate-300 shadow-sm">
+                    <i class="fas fa-user-circle text-primary"></i> Client Portal
+                </button>
+                <a href="contact.html" class="btn-primary bg-primary hover:bg-primary-dark text-white px-6 py-2.5 rounded-full font-bold text-sm transition shadow-lg shadow-primary/30 hidden md:block">
+                    Start Project
+                </a>
+                <button class="hamburger lg:hidden text-2xl text-primary-dark focus:outline-none" aria-label="Toggle Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
         </div>
     </nav>
 
-    <header class="header-bg reveal">
-        <h1 class="text-gradient">What We Deliver</h1>
-        <p style="font-size: 1.2rem; color: var(--text-muted); max-width: 700px; margin: auto;">We combine art, psychology, and logic to build digital assets that establish your authority in the local market.</p>
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay fixed inset-0 bg-primary-dark/95 backdrop-blur-md z-40 hidden flex-col items-center justify-center gap-6 text-white text-xl font-bold">
+        <a href="index.html">Home</a>
+        <a href="services.html">Our Expertise</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="blogs.html">Insights</a>
+        <a href="contact.html">Contact</a>
+        <button onclick="openLoginModal()" class="mt-4 bg-secondary text-white px-8 py-3 rounded-full shadow-lg">
+            <i class="fas fa-lock"></i> Client Portal Login
+        </button>
+    </div>
+
+    <!-- Client Portal Login Popup Modal -->
+    <div id="loginModal" class="modal-overlay fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-[100] hidden items-center justify-center p-4 opacity-0 transition-opacity duration-300">
+        <div class="modal-card bg-white w-full max-w-md rounded-3xl shadow-2xl overflow-hidden transform scale-95 transition-transform duration-300 relative">
+            <div class="bg-primary-dark p-6 text-center relative">
+                <button onclick="closeLoginModal()" class="absolute top-4 right-4 text-white/70 hover:text-white text-xl transition">
+                    <i class="fas fa-times-circle"></i>
+                </button>
+                <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-3 border border-white/20">
+                    <i class="fas fa-shield-alt text-2xl text-secondary"></i>
+                </div>
+                <h3 class="text-2xl font-black text-white">Secure Workspace</h3>
+                <p class="text-slate-300 text-sm mt-1">Access your live project tracker and invoices.</p>
+            </div>
+            <div class="p-8 text-center bg-slate-50">
+                <p class="text-slate-600 font-medium mb-6 text-sm">
+                    You are being redirected to our secure enterprise subdomain to access your dashboard.
+                </p>
+                <div class="bg-white border border-slate-200 p-4 rounded-xl mb-6 shadow-sm flex items-center justify-center gap-3">
+                    <i class="fas fa-link text-slate-400"></i>
+                    <span class="text-primary font-bold font-mono text-sm tracking-tight break-all">web.qwickdesksolutions.co.in</span>
+                </div>
+                <div class="flex flex-col gap-3">
+                    <a href="https://web.qwickdesksolutions.co.in/login.html" class="bg-primary hover:bg-primary-dark text-white font-bold py-3.5 rounded-xl shadow-lg transition flex items-center justify-center gap-2 w-full">
+                        Continue to Login <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <button onclick="closeLoginModal()" class="text-slate-500 hover:text-slate-800 font-bold py-3 text-sm transition">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header Section -->
+    <header class="pt-24 pb-16 lg:pt-32 lg:pb-24 bg-gradient-to-b from-slate-100 to-slate-50 text-center relative overflow-hidden border-b border-slate-200">
+        <div class="container mx-auto px-5 max-w-4xl relative z-10 reveal-fade-up">
+            <span class="text-secondary font-bold tracking-widest uppercase text-sm mb-4 block">The Arsenal</span>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-primary-dark mb-6 tracking-tight">What We <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Deliver.</span></h1>
+            <p class="text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
+                We combine art, psychology, and hardcore code logic to build digital assets that establish your absolute authority in the local market. Explore our core pillars below.
+            </p>
+        </div>
+        <!-- Decorative blobs -->
+        <div class="absolute top-1/2 left-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 -translate-x-1/2 pointer-events-none"></div>
+        <div class="absolute top-1/2 right-0 w-64 h-64 bg-secondary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
     </header>
 
-    <section class="expertise-container">
-        
-        <!-- Step 01 -->
-        <div class="step-row reveal">
-            <div class="step-number">01</div>
-            <div class="step-content">
-                <h3>Visual Architecture & UI</h3>
-                <p>The first impression is everything. Instead of using generic builders, we handcraft custom interfaces. Every color, shadow, and font is strategically placed to trigger trust and professionalism in your customer's mind. The layout guides the visitor's eye directly to your contact forms.</p>
-                <ul class="detail-list">
-                    <li><i class="fas fa-check"></i> High-Resolution Graphics</li>
-                    <li><i class="fas fa-check"></i> Brand Psychology Colors</li>
-                    <li><i class="fas fa-check"></i> Glassmorphism Effects</li>
-                    <li><i class="fas fa-check"></i> Seamless Scroll Flow</li>
-                </ul>
+    <!-- Main Expertise Container -->
+    <section class="py-20 lg:py-32 relative">
+        <div class="container mx-auto px-5 max-w-6xl space-y-24">
+            
+            <!-- Expertise 01: Visual Architecture -->
+            <div class="grid lg:grid-cols-2 gap-10 items-center reveal-fade-up">
+                <div class="order-2 lg:order-1 relative">
+                    <div class="absolute inset-0 bg-primary/10 transform rotate-3 rounded-[2rem] blur-sm"></div>
+                    <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=2000&auto=format&fit=crop" alt="UI Design" class="relative rounded-[2rem] shadow-xl border border-slate-200 w-full h-auto object-cover md:h-[400px]">
+                    <div class="absolute -bottom-6 -right-6 bg-white p-4 rounded-2xl shadow-lg border border-slate-100 hidden sm:block">
+                        <i class="fas fa-palette text-3xl text-secondary"></i>
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2 space-y-6">
+                    <div class="text-7xl font-black text-slate-200 leading-none">01</div>
+                    <h2 class="text-3xl lg:text-4xl font-black text-primary-dark tracking-tight">Visual Architecture & UI</h2>
+                    <p class="text-slate-600 leading-relaxed text-base sm:text-lg">
+                        The first impression is everything. Instead of generic builders, we handcraft custom interfaces. Every color, shadow, and font is strategically placed to trigger trust and guide the visitor's eye directly to your contact forms.
+                    </p>
+                    <ul class="grid sm:grid-cols-2 gap-3 text-sm font-bold text-slate-700">
+                        <li class="flex items-center gap-2"><i class="fas fa-check-circle text-secondary"></i> High-Res Graphics</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check-circle text-secondary"></i> Brand Psychology Colors</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check-circle text-secondary"></i> Glassmorphism Effects</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check-circle text-secondary"></i> Seamless Flow</li>
+                    </ul>
+                    <div class="pt-4">
+                        <a href="service-ui.html" class="inline-flex items-center gap-2 bg-primary-dark hover:bg-primary text-white px-6 py-3.5 rounded-full font-bold transition shadow-lg text-sm">
+                            Deep Dive into UI &rarr;
+                        </a>
+                    </div>
+                </div>
             </div>
-        </div>
 
-        <!-- Step 02 -->
-        <div class="step-row reveal">
-            <div class="step-number">02</div>
-            <div class="step-content">
-                <h3>Code Optimization & Velocity</h3>
-                <p>A beautiful layout is useless if it takes 10 seconds to load. We write minified, structural code that ensures your platform loads in the blink of an eye. This not only keeps visitors engaged but significantly boosts your Google Search ranking.</p>
-                <ul class="detail-list">
-                    <li><i class="fas fa-check"></i> Sub 2-Second Load Times</li>
-                    <li><i class="fas fa-check"></i> Core Web Vitals Passed</li>
-                    <li><i class="fas fa-check"></i> Image Compression</li>
-                    <li><i class="fas fa-check"></i> SEO Structured Data</li>
-                </ul>
+            <!-- Expertise 02: Code Velocity -->
+            <div class="grid lg:grid-cols-2 gap-10 items-center reveal-fade-up">
+                <div class="space-y-6">
+                    <div class="text-7xl font-black text-slate-200 leading-none">02</div>
+                    <h2 class="text-3xl lg:text-4xl font-black text-primary-dark tracking-tight">Code Optimization & Velocity</h2>
+                    <p class="text-slate-600 leading-relaxed text-base sm:text-lg">
+                        A beautiful layout is useless if it takes 10 seconds to load. We write minified, structural code that ensures your platform loads in the blink of an eye. This keeps visitors engaged and significantly boosts your Google Search ranking.
+                    </p>
+                    <ul class="grid sm:grid-cols-2 gap-3 text-sm font-bold text-slate-700">
+                        <li class="flex items-center gap-2"><i class="fas fa-check-circle text-secondary"></i> Sub 2-Second Loads</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check-circle text-secondary"></i> Core Web Vitals Passed</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check-circle text-secondary"></i> Next-Gen Image Formats</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check-circle text-secondary"></i> SEO Structured Data</li>
+                    </ul>
+                    <div class="pt-4">
+                        <a href="service-speed.html" class="inline-flex items-center gap-2 bg-primary-dark hover:bg-primary text-white px-6 py-3.5 rounded-full font-bold transition shadow-lg text-sm">
+                            Deep Dive into Velocity &rarr;
+                        </a>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="absolute inset-0 bg-secondary/10 transform -rotate-3 rounded-[2rem] blur-sm"></div>
+                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2000&auto=format&fit=crop" alt="Code Speed" class="relative rounded-[2rem] shadow-xl border border-slate-200 w-full h-auto object-cover md:h-[400px]">
+                    <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-lg border border-slate-100 hidden sm:block">
+                        <i class="fas fa-tachometer-alt text-3xl text-primary"></i>
+                    </div>
+                </div>
             </div>
-        </div>
 
-        <!-- Step 03 -->
-        <div class="step-row reveal">
-            <div class="step-number">03</div>
-            <div class="step-content">
-                <h3>Omni-Device Fluidity</h3>
-                <p>Your clients are searching for you on iPhones, Androids, Tablets, and Laptops. Our structures are mathematically calculated to shrink, expand, and reorganize elements automatically. No pinching, no zooming—just a perfect, app-like experience on every screen.</p>
-                <ul class="detail-list">
-                    <li><i class="fas fa-check"></i> 100% Mobile Responsive</li>
-                    <li><i class="fas fa-check"></i> Thumb-friendly Navigation</li>
-                    <li><i class="fas fa-check"></i> Dynamic Font Scaling</li>
-                    <li><i class="fas fa-check"></i> No Horizontal Overflow</li>
-                </ul>
+            <!-- Expertise 03: Omni-Device -->
+            <div class="grid lg:grid-cols-2 gap-10 items-center reveal-fade-up">
+                <div class="order-2 lg:order-1 relative">
+                    <div class="absolute inset-0 bg-primary/10 transform rotate-2 rounded-[2rem] blur-sm"></div>
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2000&auto=format&fit=crop" alt="Mobile Responsive" class="relative rounded-[2rem] shadow-xl border border-slate-200 w-full h-auto object-cover md:h-[400px]">
+                    <div class="absolute -bottom-6 -right-6 bg-white p-4 rounded-2xl shadow-lg border border-slate-100 hidden sm:block">
+                        <i class="fas fa-mobile-alt text-3xl text-secondary"></i>
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2 space-y-6">
+                    <div class="text-7xl font-black text-slate-200 leading-none">03</div>
+                    <h2 class="text-3xl lg:text-4xl font-black text-primary-dark tracking-tight">Omni-Device Fluidity</h2>
+                    <p class="text-slate-600 leading-relaxed text-base sm:text-lg">
+                        Over 70% of your clients search on mobile. Our structures are mathematically calculated to shrink, expand, and reorganize elements automatically. No pinching, no zooming—just a perfect, app-like experience on every screen.
+                    </p>
+                    <ul class="grid sm:grid-cols-2 gap-3 text-sm font-bold text-slate-700">
+                        <li class="flex items-center gap-2"><i class="fas fa-check-circle text-secondary"></i> 100% Mobile Responsive</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check-circle text-secondary"></i> Thumb-friendly Nav</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check-circle text-secondary"></i> Dynamic Font Scaling</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check-circle text-secondary"></i> Zero Overflow Issues</li>
+                    </ul>
+                    <div class="pt-4">
+                        <a href="service-mobile.html" class="inline-flex items-center gap-2 bg-primary-dark hover:bg-primary text-white px-6 py-3.5 rounded-full font-bold transition shadow-lg text-sm">
+                            Deep Dive into Mobility &rarr;
+                        </a>
+                    </div>
+                </div>
             </div>
-        </div>
 
-        <!-- Step 04 -->
-        <div class="step-row reveal">
-            <div class="step-number">04</div>
-            <div class="step-content">
-                <h3>Lead Capture Systems</h3>
-                <p>Traffic without leads is a waste. We integrate intelligent capture systems. From floating communication buttons to highly secure data forms, we ensure that when a customer wants to talk, they can reach your email or WhatsApp in one single tap.</p>
-                <ul class="detail-list">
-                    <li><i class="fas fa-check"></i> Zero-Spam Data Forms</li>
-                    <li><i class="fas fa-check"></i> Direct WhatsApp Triggers</li>
-                    <li><i class="fas fa-check"></i> Google Maps Embedding</li>
-                    <li><i class="fas fa-check"></i> Call-To-Action Strategy</li>
-                </ul>
+            <!-- Expertise 04: Lead Capture -->
+            <div class="grid lg:grid-cols-2 gap-10 items-center reveal-fade-up">
+                <div class="space-y-6">
+                    <div class="text-7xl font-black text-slate-200 leading-none">04</div>
+                    <h2 class="text-3xl lg:text-4xl font-black text-primary-dark tracking-tight">Lead Capture Systems</h2>
+                    <p class="text-slate-600 leading-relaxed text-base sm:text-lg">
+                        Traffic without leads is a waste. We integrate intelligent capture systems. From floating communication buttons to highly secure data forms, we ensure that when a customer wants to talk, they reach you in one single tap.
+                    </p>
+                    <ul class="grid sm:grid-cols-2 gap-3 text-sm font-bold text-slate-700">
+                        <li class="flex items-center gap-2"><i class="fas fa-check-circle text-secondary"></i> Zero-Spam Forms</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check-circle text-secondary"></i> Direct WhatsApp Triggers</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check-circle text-secondary"></i> Maps Integration</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check-circle text-secondary"></i> Smart CTA Placements</li>
+                    </ul>
+                    <div class="pt-4">
+                        <a href="service-leads.html" class="inline-flex items-center gap-2 bg-primary-dark hover:bg-primary text-white px-6 py-3.5 rounded-full font-bold transition shadow-lg text-sm">
+                            Deep Dive into Lead Gen &rarr;
+                        </a>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="absolute inset-0 bg-secondary/10 transform -rotate-2 rounded-[2rem] blur-sm"></div>
+                    <img src="https://images.unsplash.com/photo-1552581234-26160f608093?q=80&w=2000&auto=format&fit=crop" alt="Lead Generation" class="relative rounded-[2rem] shadow-xl border border-slate-200 w-full h-auto object-cover md:h-[400px]">
+                    <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-lg border border-slate-100 hidden sm:block">
+                        <i class="fas fa-magnet text-3xl text-primary"></i>
+                    </div>
+                </div>
             </div>
-        </div>
 
+        </div>
     </section>
 
-    <a href="https://wa.me/919920048859" class="floating-wa" target="_blank"><i class="fab fa-whatsapp"></i></a>
-    <footer><p>&copy; 2026 QwickDesk Solutions.</p></footer>
+    <!-- Global Technology Stack Section -->
+    <section class="py-20 bg-slate-900 text-white overflow-hidden border-t border-slate-800">
+        <div class="container mx-auto px-5 max-w-7xl text-center reveal-fade-up">
+            <h2 class="text-2xl md:text-4xl font-black mb-4">Powered by Enterprise Tech</h2>
+            <p class="text-slate-400 mb-12 max-w-2xl mx-auto">We do not use slow plugins. We build using modern, secure frameworks to ensure absolute performance and security.</p>
+            
+            <div class="flex flex-wrap justify-center gap-8 sm:gap-12 opacity-80">
+                <div class="flex flex-col items-center gap-2">
+                    <i class="fab fa-html5 text-4xl sm:text-5xl text-orange-500"></i>
+                    <span class="text-xs font-bold tracking-wider">HTML5</span>
+                </div>
+                <div class="flex flex-col items-center gap-2">
+                    <i class="fab fa-css3-alt text-4xl sm:text-5xl text-blue-500"></i>
+                    <span class="text-xs font-bold tracking-wider">CSS3 / Tailwind</span>
+                </div>
+                <div class="flex flex-col items-center gap-2">
+                    <i class="fab fa-js text-4xl sm:text-5xl text-yellow-400"></i>
+                    <span class="text-xs font-bold tracking-wider">ES6 Javascript</span>
+                </div>
+                <div class="flex flex-col items-center gap-2">
+                    <i class="fas fa-database text-4xl sm:text-5xl text-amber-500"></i>
+                    <span class="text-xs font-bold tracking-wider">Cloud Firebase</span>
+                </div>
+                <div class="flex flex-col items-center gap-2">
+                    <i class="fab fa-aws text-4xl sm:text-5xl text-slate-300"></i>
+                    <span class="text-xs font-bold tracking-wider">AWS / Cloudflare</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-5 max-w-4xl text-center reveal-zoom-in">
+            <h2 class="text-3xl md:text-5xl font-black text-primary-dark mb-6">Convinced? Let's Start.</h2>
+            <p class="text-lg text-slate-600 mb-10 max-w-2xl mx-auto">Select a package tailored for your business size, or contact us to discuss a custom enterprise solution.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="pricing.html" class="bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-full font-bold text-lg transition shadow-lg w-full sm:w-auto">
+                    View Pricing Plans
+                </a>
+                <a href="contact.html" class="bg-white border-2 border-slate-200 text-primary-dark hover:bg-slate-50 px-8 py-4 rounded-full font-bold text-lg transition w-full sm:w-auto">
+                    Contact Agency
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/919920048859" target="_blank" class="fixed bottom-6 right-6 bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-2xl hover:scale-110 transition-transform z-50 animate-bounce-slow" aria-label="WhatsApp Us">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-300 py-16 border-t border-slate-800">
+        <div class="container mx-auto px-5 max-w-7xl">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
+                <div>
+                    <a href="index.html" class="flex items-center gap-2 text-2xl font-black text-white mb-4">
+                        <img src="logo.png" alt="QwickDesk Logo" class="h-8 w-auto object-contain"> QwickDesk.
+                    </a>
+                    <p class="text-sm text-slate-400 mb-6 max-w-xs">Transforming local businesses into digital powerhouses with premium web architecture.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary hover:text-white transition"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary hover:text-white transition"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Quick Links</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="services.html" class="hover:text-secondary transition">Our Expertise</a></li>
+                        <li><a href="pricing.html" class="hover:text-secondary transition">Pricing Plans</a></li>
+                        <li><a href="blogs.html" class="hover:text-secondary transition">Latest Insights</a></li>
+                        <li><a href="contact.html" class="hover:text-secondary transition">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Get in Touch</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-map-marker-alt mt-1 text-secondary"></i>
+                            <span>Mumbai, Maharashtra, India</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-phone-alt text-secondary"></i>
+                            <a href="tel:+919920048859" class="hover:text-white transition">+91 99200 48859</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-envelope text-secondary"></i>
+                            <a href="mailto:qwickdesksolutions@outlook.com" class="hover:text-white transition">qwickdesksolutions@outlook.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
+                <p>&copy; 2026 QwickDesk Solutions. All Rights Reserved.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="hover:text-white transition">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Client Login Modal Scripts -->
+    <script>
+        function openLoginModal() {
+            const modal = document.getElementById('loginModal');
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modal.querySelector('.modal-card').classList.remove('scale-95');
+            }, 10);
+        }
+
+        function closeLoginModal() {
+            const modal = document.getElementById('loginModal');
+            modal.classList.add('opacity-0');
+            modal.querySelector('.modal-card').classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        document.getElementById('loginModal').addEventListener('click', function(e) {
+            if (e.target === this) closeLoginModal();
+        });
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
