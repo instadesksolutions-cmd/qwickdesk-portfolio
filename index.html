@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>QwickDesk Solutions | High-End Web Design Agency</title>
+    <title>QwickDesk Solutions | High-End Web Design Agency & Client Portal</title>
     
     <!-- SEO & Meta Tags -->
-    <meta name="description" content="QwickDesk Solutions - We build high-converting, lightning-fast premium websites for local businesses.">
+    <meta name="description" content="QwickDesk Solutions - We build high-converting, lightning-fast premium websites and business management apps for local enterprises.">
     <meta name="theme-color" content="#0f172a">
     
     <!-- Favicon -->
@@ -54,7 +54,7 @@
                 QwickDesk<span class="text-secondary">.</span>
             </a>
 
-            <!-- Desktop Menu (ABOUT US ADDED HERE) -->
+            <!-- Desktop Menu -->
             <div class="nav-menu hidden lg:flex items-center gap-8 font-semibold text-slate-600 text-sm">
                 <a href="index.html" class="active text-primary hover:text-primary-dark transition">Home</a>
                 <a href="about.html" class="hover:text-primary transition">About Us</a>
@@ -64,8 +64,15 @@
                 <a href="contact.html" class="hover:text-primary transition">Contact</a>
             </div>
 
-            <!-- Nav Actions & Portal Login -->
+            <!-- Nav Actions & App / Portal Buttons -->
             <div class="nav-actions flex items-center gap-2 sm:gap-3">
+                <!-- Direct APK Download Trigger Button -->
+                <button onclick="openAppModal()" class="flex items-center gap-1.5 bg-blue-50 hover:bg-blue-100 text-primary border border-blue-200 px-3 sm:px-4 py-2 rounded-full font-bold text-xs sm:text-sm transition shadow-sm active:scale-95">
+                    <i class="fab fa-android text-base text-emerald-600"></i>
+                    <span class="hidden sm:inline">Get App</span>
+                </button>
+
+                <!-- Client Portal Web Login -->
                 <button onclick="openLoginModal()" class="btn-portal flex items-center gap-1.5 bg-slate-100 hover:bg-slate-200 text-slate-800 px-3 sm:px-4 py-2 rounded-full font-bold text-xs sm:text-sm transition border border-slate-300 shadow-sm">
                     <i class="fas fa-user-circle text-primary text-sm sm:text-base"></i> <span class="hidden xs:inline">Portal</span>
                 </button>
@@ -81,7 +88,7 @@
         </div>
     </nav>
 
-    <!-- Mobile Menu Overlay (ABOUT US ADDED HERE) -->
+    <!-- Mobile Menu Overlay -->
     <div class="mobile-menu-overlay fixed inset-0 bg-primary-dark/95 backdrop-blur-md z-40 hidden flex-col items-center justify-center gap-6 text-white text-xl font-bold">
         <a href="index.html">Home</a>
         <a href="about.html">About Us</a>
@@ -89,9 +96,88 @@
         <a href="pricing.html">Pricing</a>
         <a href="blogs.html">Insights</a>
         <a href="contact.html">Contact</a>
-        <button onclick="openLoginModal()" class="mt-4 bg-secondary text-white px-8 py-3 rounded-full shadow-lg">
-            <i class="fas fa-lock"></i> Client Portal Login
-        </button>
+        
+        <div class="flex flex-col gap-3 mt-4 w-64 text-center">
+            <button onclick="openAppModal()" class="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3 rounded-full shadow-lg text-base flex items-center justify-center gap-2">
+                <i class="fab fa-android text-emerald-300"></i> Download Mobile App
+            </button>
+            <button onclick="openLoginModal()" class="bg-secondary text-white px-6 py-3 rounded-full shadow-lg text-base flex items-center justify-center gap-2">
+                <i class="fas fa-lock"></i> Client Portal Login
+            </button>
+        </div>
+    </div>
+
+    <!-- ================= APP DOWNLOAD MODAL WITH FEATURES ================= -->
+    <div id="appModal" class="modal-overlay fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-[110] hidden items-center justify-center p-4 opacity-0 transition-opacity duration-300">
+        <div class="modal-card bg-white w-full max-w-lg rounded-3xl shadow-2xl overflow-hidden transform scale-95 transition-transform duration-300 relative border border-slate-200">
+            <!-- Modal Header -->
+            <div class="bg-gradient-to-br from-primary-dark via-primary to-indigo-800 p-6 sm:p-7 text-center relative text-white">
+                <button onclick="closeAppModal()" class="absolute top-4 right-4 text-white/70 hover:text-white text-xl transition">
+                    <i class="fas fa-times-circle"></i>
+                </button>
+                <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-3 border border-white/20 shadow-inner">
+                    <i class="fab fa-android text-3xl text-emerald-400"></i>
+                </div>
+                <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-white/15 text-[11px] font-black uppercase tracking-wider mb-2 border border-white/20">
+                    Official Android Client • v1.0.0
+                </div>
+                <h3 class="text-2xl font-black">QwickDesk 360 App</h3>
+                <p class="text-blue-100 text-xs sm:text-sm mt-1">Manage leads, track campaigns, and scale your business anywhere.</p>
+            </div>
+
+            <!-- Modal Content & Features -->
+            <div class="p-6 sm:p-7 bg-white">
+                <p class="text-xs font-black uppercase text-slate-400 tracking-wider mb-3">Key Features & Capabilities</p>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+                    <div class="flex items-start gap-2.5 p-3 rounded-2xl bg-slate-50 border border-slate-100">
+                        <i class="fas fa-bolt text-amber-500 mt-1 text-sm"></i>
+                        <div>
+                            <h4 class="text-xs font-black text-slate-900">Real-Time Lead CRM</h4>
+                            <p class="text-[11px] text-slate-500 mt-0.5">Instant customer inquiries sync directly from your website.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-2.5 p-3 rounded-2xl bg-slate-50 border border-slate-100">
+                        <i class="fas fa-bell text-blue-500 mt-1 text-sm"></i>
+                        <div>
+                            <h4 class="text-xs font-black text-slate-900">Broadcast Alerts</h4>
+                            <p class="text-[11px] text-slate-500 mt-0.5">Stay informed with direct admin transmissions and milestone updates.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-2.5 p-3 rounded-2xl bg-slate-50 border border-slate-100">
+                        <i class="fas fa-chart-pie text-emerald-500 mt-1 text-sm"></i>
+                        <div>
+                            <h4 class="text-xs font-black text-slate-900">Performance ROI</h4>
+                            <p class="text-[11px] text-slate-500 mt-0.5">Monitor Meta Ads, Google local metrics, and SEO health scores.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-2.5 p-3 rounded-2xl bg-slate-50 border border-slate-100">
+                        <i class="fas fa-shield-alt text-indigo-500 mt-1 text-sm"></i>
+                        <div>
+                            <h4 class="text-xs font-black text-slate-900">Verified Security</h4>
+                            <p class="text-[11px] text-slate-500 mt-0.5">Enterprise Firebase auth with one-touch account switching.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Download Action CTA -->
+                <div class="flex flex-col gap-2.5">
+                    <a 
+                        href="https://github.com/instadesksolutions-cmd/qwickdesk-portfolio/releases/download/v1.0.0/QwickDesk-360.apk" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        class="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-black py-3.5 px-6 rounded-2xl shadow-xl transition flex items-center justify-center gap-2.5 w-full text-sm active:scale-98"
+                    >
+                        <i class="fas fa-download"></i>
+                        <span>Download APK Now (4.78 MB)</span>
+                    </a>
+                    
+                    <p class="text-[11px] text-center text-slate-400 font-semibold">
+                        Compatible with Android 8.0 and above. Direct verified CDN download.
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Client Portal Login Popup Modal -->
@@ -112,7 +198,7 @@
                     You are being redirected to our secure enterprise dashboard.
                 </p>
                 <p class="text-primary font-bold mb-6 text-base tracking-wide">
-                    🚀 Aapke project ka live status, ab bas ek click door!
+                    🚀 Real-time project status and analytics are just a click away!
                 </p>
                 <div class="flex flex-col gap-3">
                     <a href="https://web.qwickdesksolutions.co.in/login.html" class="bg-primary hover:bg-primary-dark text-white font-bold py-3.5 rounded-xl shadow-lg transition flex items-center justify-center gap-2 w-full">
@@ -142,9 +228,13 @@
                         Dominate Your Local Market <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Online.</span>
                     </h1>
                     <p class="text-base sm:text-lg text-slate-600 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                        A website is not just a digital brochure; it's a 24/7 sales engine. We build highly optimized, premium web experiences for shops, consultancies, and local enterprises.
+                        A website is not just a digital brochure; it's a 24/7 sales engine. We build highly optimized, premium web experiences and smart business management tools for shops, consultancies, and local enterprises.
                     </p>
                     <div class="hero-buttons flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <!-- Direct Modal Trigger for App Download -->
+                        <button onclick="openAppModal()" class="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-4 rounded-full font-black text-center transition shadow-xl shadow-blue-500/25 flex items-center justify-center gap-2.5 active:scale-95">
+                            <i class="fab fa-android text-xl text-emerald-300"></i> Download App (v1.0.0)
+                        </button>
                         <a href="services.html" class="bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-full font-bold text-center transition shadow-xl shadow-primary/30 flex items-center justify-center gap-2">
                             Explore Expertise <i class="fas fa-arrow-right"></i>
                         </a>
@@ -328,10 +418,13 @@
                 <div class="absolute bottom-0 right-0 w-80 h-80 border-4 border-white/10 rounded-full translate-x-1/3 translate-y-1/3"></div>
                 
                 <h2 class="text-3xl md:text-5xl font-black mb-6 relative z-10">Ready to Scale Your Revenue?</h2>
-                <p class="text-lg text-slate-200 mb-10 max-w-2xl mx-auto relative z-10">Stop losing clients to competitors who have a better online presence. Let's build an extraordinary digital asset for your business today.</p>
+                <p class="text-lg text-slate-200 mb-10 max-w-2xl mx-auto relative z-10">Stop losing clients to competitors who have a better online presence. Download our management app or let's build an extraordinary digital asset for your business today.</p>
                 
                 <div class="flex flex-col sm:flex-row justify-center gap-4 relative z-10">
-                    <a href="pricing.html" class="bg-white text-primary-dark hover:bg-slate-50 px-8 py-4 rounded-full font-black text-lg transition shadow-lg w-full sm:w-auto">
+                    <button onclick="openAppModal()" class="bg-white text-primary-dark hover:bg-slate-50 px-8 py-4 rounded-full font-black text-lg transition shadow-lg w-full sm:w-auto flex items-center justify-center gap-2">
+                        <i class="fab fa-android text-emerald-600"></i> Download QwickDesk App
+                    </button>
+                    <a href="pricing.html" class="bg-primary hover:bg-primary-dark text-white border-2 border-white/30 px-8 py-4 rounded-full font-bold text-lg transition shadow-lg w-full sm:w-auto">
                         View Pricing Plans
                     </a>
                     <a href="https://wa.me/917304856074" target="_blank" class="bg-transparent border-2 border-white text-white hover:bg-white/10 px-8 py-4 rounded-full font-bold text-lg transition flex items-center justify-center gap-2 w-full sm:w-auto">
@@ -363,7 +456,7 @@
                     </div>
                 </div>
                 
-                <!-- Quick Links (ABOUT US ADDED HERE) -->
+                <!-- Quick Links -->
                 <div>
                     <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Quick Links</h4>
                     <ul class="space-y-3 text-sm">
@@ -394,7 +487,7 @@
                 </div>
             </div>
             
-            <!-- Udyam & Shop Act Footer Badge (UPDATED WITH SHOP ACT) -->
+            <!-- Udyam & Shop Act Footer Badge -->
             <div class="bg-slate-800/40 border border-slate-700/50 rounded-2xl p-5 mb-8 flex flex-col lg:flex-row justify-between items-center gap-6 text-sm shadow-inner">
                 <div class="flex items-center gap-3 w-full lg:w-auto">
                     <div class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center text-secondary shadow-sm shrink-0">
@@ -419,7 +512,7 @@
                             <p class="text-slate-300 font-semibold font-mono tracking-tight">UDYAM-MH-21-0129451</p>
                         </div>
                     </div>
-                    <!-- Shop Act License (ADDED HERE) -->
+                    <!-- Shop Act License -->
                     <div class="flex items-center gap-3">
                         <div class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center text-secondary shadow-sm shrink-0">
                             <i class="fas fa-certificate"></i>
@@ -442,8 +535,9 @@
         </div>
     </footer>
 
-    <!-- Inline script for basic modal toggling -->
+    <!-- Inline scripts for App Modal & Login Modal -->
     <script>
+        // --- CLIENT PORTAL LOGIN MODAL ---
         function openLoginModal() {
             const modal = document.getElementById('loginModal');
             modal.classList.remove('hidden');
@@ -464,6 +558,29 @@
 
         document.getElementById('loginModal').addEventListener('click', function(e) {
             if (e.target === this) closeLoginModal();
+        });
+
+        // --- QWICKDESK 360 APP DOWNLOAD MODAL ---
+        function openAppModal() {
+            const modal = document.getElementById('appModal');
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modal.querySelector('.modal-card').classList.remove('scale-95');
+            }, 10);
+        }
+
+        function closeAppModal() {
+            const modal = document.getElementById('appModal');
+            modal.classList.add('opacity-0');
+            modal.querySelector('.modal-card').classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        document.getElementById('appModal').addEventListener('click', function(e) {
+            if (e.target === this) closeAppModal();
         });
     </script>
     
